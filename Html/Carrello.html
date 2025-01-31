@@ -11,6 +11,7 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="../Css/Carrello.css" />
+    <link rel="stylesheet" href="../Css/Base.css">
   </head>
   <body>
     <!-- Modal -->
@@ -48,371 +49,52 @@
     </div>
 
     <!-- Header -->
-
+    <nav class="head"> 
+      <div class="container text-center">
+        <!--sezione sopra-->
+        <div class="row">
+          <div class="col">
+            <a class="navbar-brand" href="#">
+              <img src="/Img/GitHub-logo.png" alt="Logo" width="80px" class="d-inline-block align-text-top">
+              </a>
+            </div>
+            <div class="col-8">
+            <form class="d-flex" role="search">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+          </div>
+          <div class="col">
+          <a href="#" class="btn btn-outline-success cart"><i class="fa-solid fa-cart-shopping"></i></a>
+          </div>
+        </div>
+        <!--sezione sotto-->
+        <div class="row justify-content-md-center navsotto">
+          <div class="col-sm-6 col-md-2 navcat">
+            <a class="nav-link" href="#">Donna</a>
+          </div>
+          <div class="col-sm-6 col-md-2 navcat">
+            <a class="nav-link" href="#">Uomo</a>
+          </div>
+          <div class="col-sm-6 col-md-2 navcat">
+            <a class="nav-link" href="#">Gioielli</a>
+          </div>
+          <div class="col-sm-6 col-md-2 navcat">
+            <a class="nav-link" href="#">Elettronica</a>
+          </div>
+        </div>
+      </div>
+     </nav>
+  
     <!-- Main -->
-    <main>
-      <!-- Left Section -->
-      <section id="main-section">
-        <h2>Carrello (2 Articoli)</h2>
-        <p>Gio, 30.01 - Lun, 03.02</p>
-        <div class="products-container">
-          <div class="product">
-            <div class="left">
-              <div class="immagine">
-                <img src="" />
-              </div>
-              <div class="descrizione">
-                <h4>Even&Odd</h4>
-                <h5>24,09$</h5>
-                <p>Colore: black</p>
-                <p>Taglia: 40</p>
-              </div>
-            </div>
-            <div class="right">
-              <select>
-                <option value="1" id="1" selected>1</option>
-                <option value="2" id="2">2</option>
-                <option value="3" id="3">3</option>
-                <option value="4" id="4">4</option>
-                <option value="5" id="5">5</option>
-                <option value="6" id="6">6</option>
-                <option value="7" id="7">7</option>
-                <option value="8" id="8">8</option>
-              </select>
-              <button>Cancella</button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Right Section -->
-      <aside id="payment-box">
-        <div class="container">
-          <div class="flex-item">
-            <h5>Subtotale</h5>
-            <p>49,08$</p>
-          </div>
-          <div class="flex-item">
-            <h5>Spedizione</h5>
-            <p>0,00$</p>
-          </div>
-          <hr />
-          <div class="flex-item">
-            <p><span>Totale</span>IVA inclusa</p>
-            <p>49,08$</p>
-          </div>
-          <button class="btn">Procedi</button>
-          <p>Modalita' di pagamento disponibili</p>
-          <div class="flex-container">
-            <i class="fa-solid fa-credit-card"></i
-            ><i class="fa-solid fa-credit-card"></i
-            ><i class="fa-solid fa-credit-card"></i
-            ><i class="fa-solid fa-credit-card"></i
-            ><i class="fa-solid fa-credit-card"></i
-            ><i class="fa-solid fa-credit-card"></i
-            ><i class="fa-solid fa-credit-card"></i
-            ><i class="fa-solid fa-credit-card"></i>
-          </div>
-        </div>
-      </aside>
-    </main>
-
-    <!-- List of Products -->
-    <div class="container d-flex py-4">
-      <div class="d-flex container-fluid flex-column gap-3">
-        <div class="card">
-          <img
-            src="https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg"
-            class="card-img-top"
-            alt="..."
-          />
-          <div class="card-body">
-            <div class="text-section">
-              <h5 class="card-title">Even&Odd</h5>
-              <p class="card-text">
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </p>
-            </div>
-            <div class="cta-section">
-              <h6 class="card-subtitle">49,08$</h6>
-              <select class="btn btn-primary">
-                <option value="1" id="1">1</option>
-                <option value="2" id="2">2</option>
-                <option value="3" id="3">3</option>
-                <option value="4" id="4">4</option>
-                <option value="5" id="5">5</option>
-                <option value="6" id="6">6</option>
-                <option value="7" id="7">7</option>
-                <option value="8" id="8">8</option>
-              </select>
-            </div>
-          </div>
-        </div>
-        <div class="card">
-          <img
-            src="https://placehold.co/600x400"
-            class="card-img-top"
-            alt="..."
-          />
-          <div class="card-body">
-            <div class="text-section">
-              <h5 class="card-title">Even&Odd</h5>
-              <p class="card-text">
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </p>
-            </div>
-            <div class="cta-section">
-              <h6 class="card-subtitle">49,08$</h6>
-              <select class="btn btn-primary">
-                <option value="1" id="1">1</option>
-                <option value="2" id="2">2</option>
-                <option value="3" id="3">3</option>
-                <option value="4" id="4">4</option>
-                <option value="5" id="5">5</option>
-                <option value="6" id="6">6</option>
-                <option value="7" id="7">7</option>
-                <option value="8" id="8">8</option>
-              </select>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Payment Card -->
-    <div class="container p-3" id="payment-card">
-      <div class="container-fluid d-flex justify-content-between">
-        <h5>Subtotale</h5>
-        <p>49,08$</p>
-      </div>
-      <div class="container-fluid d-flex justify-content-between">
-        <h5>Spedizione</h5>
-        <p>0,00$</p>
-      </div>
-      <hr />
-      <div class="container-fluid d-flex justify-content-between">
-        <h5><span>Totale</span> IVA inclusa</h5>
-        <p>49,08$</p>
-      </div>
-      <button class="btn btn-primary btn-block w-100 rounded-pill">
-        Procedi
-      </button>
-    </div>
 
     <!-- Payment card + List of Products -->
     <div
       class="container d-flex flex-column flex-md-row py-4 align-items-start position-relative"
       id="main-container"
     >
-      <div class="d-flex container-fluid px-0 w-auto flex-column gap-3">
-        <div class="card">
-          <img
-            src="https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg"
-            class="card-img-top"
-            alt="..."
-          />
-          <div class="card-body">
-            <div class="text-section">
-              <h5 class="card-title">Even&Odd</h5>
-              <p class="card-text">
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </p>
-            </div>
-            <div class="cta-section">
-              <h6 class="card-subtitle">49,08$</h6>
-              <select
-                onchange="calcoloTotaleCostoQuantita(event, this)"
-                class="btn btn-primary"
-              >
-                <option value="1" id="1">1</option>
-                <option value="2" id="2">2</option>
-                <option value="3" id="3">3</option>
-                <option value="4" id="4">4</option>
-                <option value="5" id="5">5</option>
-                <option value="6" id="6">6</option>
-                <option value="7" id="7">7</option>
-                <option value="8" id="8">8</option>
-              </select>
-            </div>
-          </div>
-        </div>
-        <div class="card">
-          <img
-            src="https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg"
-            class="card-img-top"
-            alt="..."
-          />
-          <div class="card-body">
-            <div class="text-section">
-              <h5 class="card-title">Even&Odd</h5>
-              <p class="card-text">
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </p>
-            </div>
-            <div class="cta-section">
-              <h6 class="card-subtitle">49,08$</h6>
-              <select class="btn btn-primary">
-                <option value="1" id="1">1</option>
-                <option value="2" id="2">2</option>
-                <option value="3" id="3">3</option>
-                <option value="4" id="4">4</option>
-                <option value="5" id="5">5</option>
-                <option value="6" id="6">6</option>
-                <option value="7" id="7">7</option>
-                <option value="8" id="8">8</option>
-              </select>
-            </div>
-          </div>
-        </div>
-        <div class="card">
-          <img
-            src="https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg"
-            class="card-img-top"
-            alt="..."
-          />
-          <div class="card-body">
-            <div class="text-section">
-              <h5 class="card-title">Even&Odd</h5>
-              <p class="card-text">
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </p>
-            </div>
-            <div class="cta-section">
-              <h6 class="card-subtitle">49,08$</h6>
-              <select class="btn btn-primary">
-                <option value="1" id="1">1</option>
-                <option value="2" id="2">2</option>
-                <option value="3" id="3">3</option>
-                <option value="4" id="4">4</option>
-                <option value="5" id="5">5</option>
-                <option value="6" id="6">6</option>
-                <option value="7" id="7">7</option>
-                <option value="8" id="8">8</option>
-              </select>
-            </div>
-          </div>
-        </div>
-        <div class="card">
-          <img
-            src="https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg"
-            class="card-img-top"
-            alt="..."
-          />
-          <div class="card-body">
-            <div class="text-section">
-              <h5 class="card-title">Even&Odd</h5>
-              <p class="card-text">
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </p>
-            </div>
-            <div class="cta-section">
-              <h6 class="card-subtitle">49,08$</h6>
-              <select class="btn btn-primary">
-                <option value="1" id="1">1</option>
-                <option value="2" id="2">2</option>
-                <option value="3" id="3">3</option>
-                <option value="4" id="4">4</option>
-                <option value="5" id="5">5</option>
-                <option value="6" id="6">6</option>
-                <option value="7" id="7">7</option>
-                <option value="8" id="8">8</option>
-              </select>
-            </div>
-          </div>
-        </div>
-        <div class="card">
-          <img
-            src="https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg"
-            class="card-img-top"
-            alt="..."
-          />
-          <div class="card-body">
-            <div class="text-section">
-              <h5 class="card-title">Even&Odd</h5>
-              <p class="card-text">
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </p>
-            </div>
-            <div class="cta-section">
-              <h6 class="card-subtitle">49,08$</h6>
-              <select class="btn btn-primary">
-                <option value="1" id="1">1</option>
-                <option value="2" id="2">2</option>
-                <option value="3" id="3">3</option>
-                <option value="4" id="4">4</option>
-                <option value="5" id="5">5</option>
-                <option value="6" id="6">6</option>
-                <option value="7" id="7">7</option>
-                <option value="8" id="8">8</option>
-              </select>
-            </div>
-          </div>
-        </div>
-        <div class="card">
-          <img
-            src="https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg"
-            class="card-img-top"
-            alt="..."
-          />
-          <div class="card-body">
-            <div class="text-section">
-              <h5 class="card-title">Even&Odd</h5>
-              <p class="card-text">
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </p>
-            </div>
-            <div class="cta-section">
-              <h6 class="card-subtitle">49,08$</h6>
-              <select class="btn btn-primary">
-                <option value="1" id="1">1</option>
-                <option value="2" id="2">2</option>
-                <option value="3" id="3">3</option>
-                <option value="4" id="4">4</option>
-                <option value="5" id="5">5</option>
-                <option value="6" id="6">6</option>
-                <option value="7" id="7">7</option>
-                <option value="8" id="8">8</option>
-              </select>
-            </div>
-          </div>
-        </div>
-        <div class="card">
-          <img
-            src="https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg"
-            class="card-img-top"
-            alt="..."
-          />
-          <div class="card-body">
-            <div class="text-section">
-              <h5 class="card-title">Even&Odd</h5>
-              <p class="card-text">
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </p>
-            </div>
-            <div class="cta-section">
-              <h6 class="card-subtitle">49,08$</h6>
-              <select class="btn btn-primary">
-                <option value="1" id="1">1</option>
-                <option value="2" id="2">2</option>
-                <option value="3" id="3">3</option>
-                <option value="4" id="4">4</option>
-                <option value="5" id="5">5</option>
-                <option value="6" id="6">6</option>
-                <option value="7" id="7">7</option>
-                <option value="8" id="8">8</option>
-              </select>
-            </div>
-          </div>
-        </div>
+      <div class="d-flex container-fluid px-0 w-auto flex-column gap-3" id="cards-container">
+
         <div class="card">
           <img
             src="https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg"
@@ -476,6 +158,42 @@
     </div>
     <!-- Footer -->
 
+   <!--FOOTER-->
+   <nav class="foot"> 
+    <div class="container text-center">
+      <!--sezione sotto-->
+      <div class="row justify-content-md-center navsotto">
+        <div class="row">
+          <div class="col social">
+          <img src="/Img/GitHub-logo.png" width="50px"></a>
+          <img src="/Img/GitHub-logo.png" width="50px"></a>
+          <img src="/Img/GitHub-logo.png" width="50px"></a>
+          <img src="/Img/GitHub-logo.png" width="50px"></a>
+          <img src="/Img/GitHub-logo.png" width="50px"></a>
+          <img src="/Img/GitHub-logo.png" width="50px"></a>
+          </div>
+        </div>
+        <div class="col-md-2 ">
+          <a class="nav-link" href="#">blocco 1</a>
+          <span>blabla</span><br>
+          <span>blabla</span><br>
+          <span>blabla</span><br>
+        </div>
+        <div class="col-md-2 ">
+          <a class="nav-link" href="#">blocco 2</a>
+          <span>blabla</span><br>
+          <span>blabla</span><br>
+          <span>blabla</span><br>
+        </div>
+        <div class="col-md-2 ">
+          <a class="nav-link" href="#">blocco 3</a>
+          <span>blabla</span><br>
+          <span>blabla</span><br>
+          <span>blabla</span><br>
+        </div>
+      </div>
+    </div>
+   </nav>
     <!-- Scripts -->
     <script
       src="https://kit.fontawesome.com/b7c0adacbf.js"

@@ -88,3 +88,17 @@ margin: 1px;
     text-align: center !important;
     
 }
+* {
+    box-sizing: border-box;
+  }
+  #col-sx{
+      width: 30%;
+      float: left;
+   border: solid 3px;
+  }
+  #colonne{
+    display: table;  
+  }
+  #col-dx{
+      width: 70%;
+  }

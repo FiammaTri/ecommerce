@@ -47,7 +47,7 @@ button:hover{
 /* FOOTER */
 
 .foot {
-    position:fixed;
+    
     bottom: 0px;
     padding-bottom: 10px;
     width: 100%;
@@ -67,8 +67,10 @@ margin-bottom: 15px;
     
 }
 #cards:hover{
-    display: none;
+    width: 500px;
+    
 }
+
 #gallery{
     margin: 15px;
     display: flex;
@@ -77,7 +79,12 @@ margin-bottom: 15px;
 #button{
 background-color: aliceblue !important ;
 color: black !important;
+border-color: black !important;
+border-radius: 0% !important;
+margin: 1px;
+
 }
-#button:hover{
-    background-color: rgb(109, 15, 175) !important;
+#TITOLO{
+    text-align: center !important;
+    
 }

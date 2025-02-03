@@ -25,7 +25,7 @@
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
           <div class="modal-header">
-            <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Payment confirmation</h1>
             <button
               type="button"
               class="btn-close"
@@ -33,16 +33,67 @@
               aria-label="Close"
             ></button>
           </div>
-          <div class="modal-body">...</div>
+          <div class="modal-body">
+            <form class="row g-3" id="payment-form">
+              <div class="col-md-6">
+                <label for="inputEmail4" class="form-label">Email</label>
+                <input type="email" class="form-control" id="inputEmail4">
+              </div>
+              <div class="col-md-6">
+                <label for="inputPassword4" class="form-label">Password</label>
+                <input type="password" class="form-control" id="inputPassword4">
+              </div>
+              <div class="col-12">
+                <label for="inputAddress" class="form-label">Address</label>
+                <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+              </div>
+              <div class="col-md-6">
+                <label for="inputCity" class="form-label">City</label>
+                <input type="text" class="form-control" id="inputCity">
+              </div>
+              <div class="col-md-4">
+                <label for="inputState" class="form-label">State</label>
+                <select id="inputState" class="form-select">
+                  <option selected>Choose...</option>
+                  <option>...</option>
+                </select>
+              </div>
+              <div class="col-md-2">
+                <label for="inputZip" class="form-label">Zip</label>
+                <input type="text" class="form-control" id="inputZip">
+              </div>
+              <div class="col-md-6">
+                <label for="inputCardNumber" class="form-label">Card Number</label>
+                <input type="text" class="form-control" id="inputCardNumber">
+              </div>
+              <div class="col-md-4">
+                <label for="inputScadenza" class="form-label">Scadenza</label>
+                <input type="text" class="form-control" id="inputScadenza">
+              </div>
+              <div class="col-md-2">
+                <label for="inputCvc" class="form-label">CVC</label>
+                <input type="text" class="form-control" id="inputCvc">
+              </div>
+              <div class="col-12">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="gridCheck">
+                  <label class="form-check-label" for="gridCheck">
+                    Check me out
+                  </label>
+                </div>
+              </div>
+            </form>
+          </div>
           <div class="modal-footer">
             <button
               type="button"
               class="btn btn-secondary"
               data-bs-dismiss="modal"
+              id="modal-close-btn"
             >
               Close
             </button>
-            <button type="button" class="btn btn-primary">Save changes</button>
+            <button type="button" class="btn btn-primary"  id="payment-btn">Continue</button>
           </div>
         </div>
       </div>
@@ -89,73 +140,21 @@
     <!-- Main -->
 
     <!-- Payment card + List of Products -->
+     <!-- <div> -->
     <div
       class="container d-flex flex-column flex-md-row py-4 align-items-start position-relative"
       id="main-container"
     >
-      <div class="d-flex container-fluid px-0 w-auto flex-column gap-3" id="cards-container">
-
-        <div class="card">
-          <img
-            src="https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg"
-            class="card-img-top"
-            alt="..."
-          />
-          <div class="card-body">
-            <div class="text-section">
-              <h5 class="card-title">Even&Odd</h5>
-              <p class="card-text">
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </p>
-            </div>
-            <div class="cta-section">
-              <h6 class="card-subtitle">49,08$</h6>
-              <select class="btn btn-primary">
-                <option value="1" id="1">1</option>
-                <option value="2" id="2">2</option>
-                <option value="3" id="3">3</option>
-                <option value="4" id="4">4</option>
-                <option value="5" id="5">5</option>
-                <option value="6" id="6">6</option>
-                <option value="7" id="7">7</option>
-                <option value="8" id="8">8</option>
-              </select>
-            </div>
-          </div>
-        </div>
+      <div class="d-flex container-fluid px-0 w-auto flex-column gap-3">
+        <h1>Il tuo carrello</h1>
+        <div class="d-flex container-fluid px-0 w-auto flex-column gap-3" id="cards-container"></div>
       </div>
       <div class="container p-3 position-sticky" id="payment-card">
-        <div class="container-fluid d-flex justify-content-between">
-          <h5>Subtotale</h5>
-          <p>49,08$</p>
-        </div>
-        <div class="container-fluid d-flex justify-content-between">
-          <h5>Spedizione</h5>
-          <p>0,00$</p>
-        </div>
-        <hr />
-        <div class="container-fluid d-flex justify-content-between">
-          <h5><span>Totale</span> IVA inclusa</h5>
-          <p>49,08$</p>
-        </div>
-        <button type="button" class="btn btn-primary btn-block w-100 rounded-pill" data-bs-toggle="modal" data-bs-target="#exampleModal">
-          Procedi
-        </button>
-        <div class="row text-center mt-4 mb-2">
-          <i class="fa-solid fa-credit-card col-3"></i
-          ><i class="fa-solid fa-credit-card col-3"></i
-          ><i class="fa-solid fa-credit-card col-3"></i
-          ><i class="fa-solid fa-credit-card col-3"></i>
-        </div>
-        <div class="row text-center">
-          <i class="fa-solid fa-credit-card col-3"></i
-          ><i class="fa-solid fa-credit-card col-3"></i
-          ><i class="fa-solid fa-credit-card col-3"></i
-          ><i class="fa-solid fa-credit-card col-3"></i>
-        </div>
+        
+      </div>
       </div>
     </div>
+    <!-- </div> -->
     <!-- Footer -->
 
    <!--FOOTER-->

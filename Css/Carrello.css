@@ -53,11 +53,12 @@ ul {
 #payment-card {
     max-width: 300px;
     background-color: #efefef;
-    top: 10vh;
+    top: 5vh;
 }
 
 #main-container {
     gap: 1rem;
+    min-height: 75vh;
 }
 
 @media screen and (max-width: 768px) {
@@ -66,3 +67,13 @@ ul {
         max-width: none;
     }
 }
+
+.card-text {
+    overflow-y: scroll;
+    text-overflow: ellipsis;
+    max-height: 150px;
+}
+
+.card-text::-webkit-scrollbar {
+    display: none;
+  }

@@ -12,7 +12,6 @@
 
 
 .navcat{
-    
     padding:10px;
 }
 .navcat:hover {
@@ -47,7 +46,6 @@ button:hover{
 }
 
 /* FOOTER */
-
 .foot {
     
     padding-bottom: 10px;
@@ -56,12 +54,21 @@ button:hover{
 }
 
 .social {
-margin-bottom: 15px;
-padding-top: 15px;
-justify-content: space-evenly;
-display: flex;
+    margin-bottom: 15px;
+    padding-top: 15px;
+    justify-content: center;
+    display: flex;
 }
 
+.fa-brands {
+    margin: 5px;
+}
+
+.dati {
+    font-size: small;
+}
+
+/* BODY */
 a {
     color: black;
 }
@@ -69,3 +76,4 @@ a {
 a:hover {
     color: rgb(112, 44, 249);
 }
+

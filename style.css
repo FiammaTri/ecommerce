@@ -60,16 +60,14 @@ margin-bottom: 15px;
 .titolo{
     text-align: center;
 }
-#cards{
+.card{
     
-    
+    display: flex;
     float: left;
     
 }
-#cards:hover{
-    width: 500px;
-    
-}
+ 
+
 
 #gallery{
     margin: 15px;
@@ -88,17 +86,5 @@ margin: 1px;
     text-align: center !important;
     
 }
-* {
-    box-sizing: border-box;
-  }
-  #col-sx{
-      width: 30%;
-      float: left;
-   border: solid 3px;
-  }
-  #colonne{
-    display: table;  
-  }
-  #col-dx{
-      width: 70%;
-  }
+
+  

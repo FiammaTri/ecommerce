@@ -1,3 +1,6 @@
+*{
+  box-sizing: border-box;
+}
 .center {
     display: block;
     margin-left: auto;
@@ -8,7 +11,8 @@
 
   .col-cat {
     margin-top: 15px;
-    
+    margin-bottom: 30px;
+    position: relative;
   }
 
   .col-cat:hover{
@@ -35,4 +39,43 @@
     margin-bottom: 30px;
   }
 
+  .testo-cat {
+    position: absolute;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.8));
+    padding: 12px 6px;
+    bottom: 0;
+    left: 12px;
+    right: 12px;
+    font-weight: bold;
+  }
+ .col-cat a {
+  text-decoration: none;
+  color: white;
+  
+}
 
+.spanfoot {
+  font-weight: bold;
+}
+
+.acquista {
+  background-color: rgb(112, 44, 249) !important;
+  color: white !important;
+  border-color: rgb(112, 44, 249) !important;
+  border-width: 2px !important;
+  position: relative;
+}
+
+.acquista:hover{
+  background-color: white !important;
+  color: rgb(112, 44, 249) !important;
+  border-color: rgb(112, 44, 249) !important;
+}
+
+.costo-bottone {
+  bottom: 10px;
+}
+
+.acquista {
+  
+}

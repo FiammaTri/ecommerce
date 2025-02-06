@@ -77,3 +77,7 @@ ul {
 .card-text::-webkit-scrollbar {
     display: none;
   }
+
+.row i {
+    font-size: x-large;
+}

@@ -1,6 +1,5 @@
 const paymentBtn = document.getElementById("payment-btn");
 
-
 function getCarrello(id_carrello) {
   const mainContainer = document.getElementById("main-container");
   const total = 0;
@@ -9,25 +8,19 @@ function getCarrello(id_carrello) {
   fetch(URL)
     .then((res) => res.json())
     .then((json) => {
-      if (!json) {
-        createPaymentCard(0);
-        return;
-      }
-
       const promises = json.products.map(({ productId, quantity }) =>
         createProductCard(productId, quantity, total)
       );
 
       Promise.all(promises).then((data) => {
         let cards = data.map((obj) => obj.html).join("");
-        const total = data.reduce((sum, obj) => sum + obj.total, 0);
-        
+
         const container = document.getElementById("cards-container");
         container.innerHTML = cards;
-        createPaymentCard(total);
-        
+
+        updatePrice();
       });
-    });
+    }).catch((err) =>updatePrice() );
 }
 
 function createPaymentCard(totale) {
@@ -51,15 +44,15 @@ function createPaymentCard(totale) {
   </button>
   <div class="row text-center mt-4 mb-2">
     <i class="fa-solid fa-credit-card col-3"></i
-    ><i class="fa-solid fa-credit-card col-3"></i
-    ><i class="fa-solid fa-credit-card col-3"></i
-    ><i class="fa-solid fa-credit-card col-3"></i>
+    ><i class="fa-regular fa-credit-card col-3"></i
+    ><i class="fa-brands fa-cc-visa col-3"></i
+    ><i class="fa-brands fa-cc-mastercard col-3"></i>
   </div>
   <div class="row text-center">
-    <i class="fa-solid fa-credit-card col-3"></i
-    ><i class="fa-solid fa-credit-card col-3"></i
-    ><i class="fa-solid fa-credit-card col-3"></i
-    ><i class="fa-solid fa-credit-card col-3"></i>
+    <i class="fa-brands fa-cc-paypal col-3"></i
+    ><i class="fa-brands fa-cc-apple-pay col-3"></i
+    ><i class="fa-brands fa-cc-amazon-pay col-3"></i
+    ><i class="fa-brands fa-cc-stripe col-3"></i>
   </div>
 `;
 }
@@ -70,24 +63,49 @@ function createProductCard(productId, quantity, total) {
     .then((res) => res.json())
     .then((json) => {
       return {
-        html: `
+        html: createProductCardHtml(json, _, _, quantity),
+        total: json.price * quantity,
+      };
+    });
+}
+
+function createProductCardHtml(product, index, _, quantity = 1) {
+  return `
         <div class="card">
-        <img src="${json.image}" class="card-img-top p-3" alt="..." />
-        <div class="card-body">
-        <div class="text-section">
-        <h5 class="card-title">${json.title}</h5>
-        <p class="card-text">${json.description}</p>
+          <img src="${product.image}" class="card-img-top p-3" alt="..." />
+          <div class="card-body">
+             <div class="text-section">
+        <h5 class="card-title">${product.title}</h5>
+        <p class="card-text">${product.description}</p>
         </div>
         <div class="cta-section">
-        <h6 class="card-subtitle">${(json.price * quantity).toFixed(2)}$</h6>
+        <button onclick="deleteProduct(this)" class="btn btn-primary px-2">X</button>
+        <div>
+        <h6 class="card-subtitle"><span>${(product.price * quantity).toFixed(
+          2
+        )}</span>$</h6>
         <h6 class="card-subtitle">Qt. ${quantity}</h6>
         </div>
         </div>
         </div>
-        `,
-        total: json.price * quantity,
-      };
-    });
+        </div>
+        `
+}
+
+function updatePrice() {
+  const cards = Array.from(document.querySelectorAll(".card"));
+  const totale = cards.reduce(
+    (sum, obj) =>
+      sum + Number(obj.querySelector(".card-subtitle span").textContent),
+    0
+  );
+  createPaymentCard(totale);
+}
+
+function deleteProduct(element) {
+  const card = element.closest(".card");
+  card.remove();
+  updatePrice();
 }
 
 function paymentValidation(event) {
@@ -109,6 +127,7 @@ function paymentValidation(event) {
 
 function checkParam() {
   const params = new URLSearchParams(window.location.search);
+
   if (params.get("cartId")) {
     getCarrello(params.get("cartId"));
   } else if (!params.toString()) {
@@ -116,9 +135,52 @@ function checkParam() {
   }
 }
 
-
-
-checkParam();
+// checkParam();
 paymentBtn.addEventListener("click", (event) => {
   paymentValidation(event);
 });
+
+// IDEAS
+
+//  ABLE TO CHANGE QUANTITTY AND UPDATE TOTAL PRICE AT THE SAME TIME
+// function updateProductQuantity(element, price) {
+//   element.previousElementSibling.innerHTML = (price * element.value).toFixed(2) + "$";
+//   updatePrice();
+// }
+
+// ABLE TO GETCARELLO() FROM AN ARRAY PASSED FROM QUERY STRING
+function getCarelloFromArray(arrayCarrello) {
+  const URL = "https://fakestoreapi.com/products";
+  fetch(URL)
+    .then((res) => res.json())
+    .then((json) => {
+      const productsInCarrello = json.filter((element) => arrayCarrello.includes(element.id))
+      const cards = productsInCarrello.map(createProductCardHtml).join("");
+      const container = document.getElementById("cards-container");
+      container.innerHTML = cards;
+      updatePrice();
+    });
+}
+
+getCarelloFromArray([1,2,3,4,5,6,7])
+
+
+
+// Simone 
+
+function getAllProductsCategory(categoria) {
+  const URL = "https://fakestoreapi.com/products/category/";
+  fetch(URL + categoria)
+            .then(res=>res.json())
+            .then(json=>{
+
+              console.log(json);
+              const container = document.getElementById("gallery");
+
+              for (let product of json){
+                console.log(product);
+                const card = createCard(product);
+                container.appendChild(card);
+              }
+            })
+}

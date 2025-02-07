@@ -10,6 +10,8 @@ fetch('https://fakestoreapi.com/products/15')
         prezzo.innerHTML = json.price;
         const immagine = document.querySelector('#col-pref-donna img')
         immagine.src = json.image;
+        const link = document.querySelector('#col-pref-donna a')
+        link.href = "Prodotto.html?productid=15"
     })
 
 fetch('https://fakestoreapi.com/products/4')
@@ -24,6 +26,8 @@ fetch('https://fakestoreapi.com/products/4')
         prezzo.innerHTML = json.price;
         const immagine = document.querySelector('#col-pref-uomo img')
         immagine.src = json.image;
+        const link = document.querySelector('#col-pref-uomo a')
+        link.href = "Prodotto.html?productid=4"
     })
 
 fetch('https://fakestoreapi.com/products/7')
@@ -38,6 +42,8 @@ fetch('https://fakestoreapi.com/products/7')
         prezzo.innerHTML = json.price;
         const immagine = document.querySelector('#col-pref-gioielli img')
         immagine.src = json.image;
+        const link = document.querySelector('#col-pref-gioielli a')
+        link.href = "Prodotto.html?productid=7"
     })
 
 
@@ -53,6 +59,8 @@ fetch('https://fakestoreapi.com/products/12')
         prezzo.innerHTML = json.price;
         const immagine = document.querySelector('#col-pref-elettro img')
         immagine.src = json.image;
+        const link = document.querySelector('#col-pref-elettro a')
+        link.href = "Prodotto.html?productid=12"
     })
 
 

@@ -14,43 +14,34 @@
 </head>
     <body>
 
-          <!--HEADER-->
-   <nav class="head"> 
+  <!--HEADER-->
+  <nav class="head"> 
     <div class="container text-center">
-  
-      <div class="row">
-        <div class="col">
-          <a class="navbar-brand" href="#">
+      <!--sezione sopra-->
+      <div class="row justify-content-md-center">
+        <div class="col col-sd-12">
+          <a class="navbar-brand" href="">
             <img src="../Img/GitHub-logo.png" alt="Logo" width="80px" class="d-inline-block align-text-top">
-            </a>
+          </a>
           </div>
-          <div class="col-8">
-          <form class="d-flex" role="search">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Search</button>
-          </form>
+          <div class="col-sd-8 col-6">
+            <form class="d-flex" role="search">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+          </div>
+          <div class="col col-sd-2">
+            <a href="#" class="btn btn-outline-success cart"><i class="fa-solid fa-cart-shopping"></i></a>
+          </div>
+  
         </div>
-        <div class="col">
-        <a href="#" class="btn btn-outline-success cart"><i class="fa-solid fa-cart-shopping"></i></a>
-        </div>
-      </div>
-
-      <div class="row justify-content-md-center navsotto">
-        <div class="col-sm-6 col-md-2 navcat">
-          <a class="nav-link" href="#">Donna</a>
-        </div>
-        <div class="col-sm-6 col-md-2 navcat">
-          <a class="nav-link" href="#">Uomo</a>
-        </div>
-        <div class="col-sm-6 col-md-2 navcat">
-          <a class="nav-link" href="#">Gioielli</a>
-        </div>
-        <div class="col-sm-6 col-md-2 navcat">
-          <a class="nav-link" href="#">Elettronica</a>
+        <!--sezione sotto-->
+        <div class="row justify-content-md-center navsotto" id="nav-bar-cat">
+  
         </div>
       </div>
-    </div>
-   </nav>
+    </nav>
+  
     
 <!--Visualizzazione del prodotto con la miniatura e la descrizione con la possibilità di sceglliere il colore e la taglia -->
         
@@ -61,46 +52,58 @@
             </div>
         </div>
 
-        
-   <!--FOOTER-->
-   <nav class="foot"> 
-    <div class="container text-center">
-      <div class="row justify-content-md-center navsotto">
-        <div class="row">
-          <div class="col social">
-          <img src="../Img/GitHub-logo.png" width="50px"></a>
-          <img src="../Img/GitHub-logo.png" width="50px"></a>
-          <img src="../Img/GitHub-logo.png" width="50px"></a>
-          <img src="../Img/GitHub-logo.png" width="50px"></a>
-          <img src="../Img/GitHub-logo.png" width="50px"></a>
-          <img src="../Img/GitHub-logo.png" width="50px"></a>
-          </div>
-        </div>
-        <div class="col-md-2 ">
-          <a class="nav-link" href="#">blocco 1</a>
-          <span>blabla</span><br>
-          <span>blabla</span><br>
-          <span>blabla</span><br>
-        </div>
-        <div class="col-md-2 ">
-          <a class="nav-link" href="#">blocco 2</a>
-          <span>blabla</span><br>
-          <span>blabla</span><br>
-          <span>blabla</span><br>
-        </div>
-        <div class="col-md-2 ">
-          <a class="nav-link" href="#">blocco 3</a>
-          <span>blabla</span><br>
-          <span>blabla</span><br>
-          <span>blabla</span><br>
+   
+<!--FOOTER-->
+<nav class="foot">
+  <div class="container text-center">
+    <!--sezione link-->
+    <div class="row justify-content-md-center navsotto">
+      <div class="row">
+
+      </div>
+
+      <div class="w-100 d-block d-md-none divisorio d-lg-none d-sm-block"></div>
+      <div class="col">
+        <br>
+        <span class="spanfoot">DOMANDE</span><br>
+        <span><a href="www.sito.com/faq">FAQ</a></span><br>
+        <span><a href="www.sito.com/contatti">Contatti</a> </span><br>
+
+      </div>
+      <div class="col">
+        <br><span class="spanfoot">SPEDIZIONE</span><br>
+        <span><a href="www.sito.com/spedizioni">Corriere </a></span><br>
+        <span><a href="www.sito.com/reso">Reso</a> </span><br>
+
+      </div>
+      <div class="col">
+        <br><span class="spanfoot">PAGAMENTI</span><br>
+        <span><a href="www.sito.com/modalita">Modalità </a></span><br>
+        <span><a href="www.sito.com/buono-regalo">Buono regalo</a> </span><br>
+      </div>
+      <!-- sezione social e dati -->
+      <div class="row">
+        <div class="social">
+          <div>Seguici su:</div>
+          <a href="www.facebook/sito"><i class="fa-brands fa-facebook"></i></a>
+          <a href="www.instagram/sito"><i class="fa-brands fa-instagram"></i></a>
+          <a href="www.twitter/sito"><i class="fa-brands fa-twitter"></i></a>
+          <a href="www.tiktok/sito"><i class="fa-brands fa-tiktok"></i></a>
         </div>
       </div>
     </div>
-   </nav>
+    <div class="dati">
+      Group2 S.p.A. | Sede Amministrativa e Sede Legale: Via Roma n. 1 – 00100 Roma (RM), Italia | Copyright 2025 ©
+      Group2 – PEC:
+      group2@pec.it
+    </div>
+</nav>
 
-      <script src="https://kit.fontawesome.com/b7c0adacbf.js" crossorigin="anonymous"></script>  
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<!-- SCRIPT PER RICHIAMARE ICONE E JS -->
+<script src="/Javascript/header.js"></script>
+<script src="https://kit.fontawesome.com/b7c0adacbf.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
 
-    </body>
 </html>
-    

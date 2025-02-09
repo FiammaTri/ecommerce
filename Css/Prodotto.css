@@ -19,7 +19,8 @@ body {
     justify-content: center;
     display: flex;
     width: 90%;
-    margin-left: 35%; 
+    margin-left: 35%;
+    height: auto; 
 
 }
 

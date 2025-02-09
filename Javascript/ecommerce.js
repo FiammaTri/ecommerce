@@ -26,11 +26,17 @@ fetch(`https://fakestoreapi.com/products/${productId}`)
             <p><span style="color:black">Categoria:</span> ${product.category}</p>
             <p><span style="color:black">Descrizione:</span> ${product.description}</p>
             <p><span style="color:black">Prezzo:</span> $${product.price}</p>
-            <button type="button" class="btn btn-dark"> Aggiungi al carrello</button>
+
+            <button cla type="button" class="btn btn-dark" onClick="addToCart(${productId})"> Aggiungi al carrello</button>
         </div>
     </div>
   </div>
         `;
   })
-
   .catch((error) => console.error("Errore nel recupero del prodotto:", error));
+
+  function addToCart(productId){
+    alert(`Prodotto con ID "  ${productId}  " è stato aggiunto al carrello`);
+  }
+
+

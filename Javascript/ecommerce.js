@@ -1,9 +1,18 @@
 function ClickOnFoto(path) {
   document.getElementById("foto-principale").src = path;
 }
+//funzione recupera il valore dell'url
+function getQueryParam(param){
+  let identification= new URLSearchParams(window.location.search)
+  return identification.get(param)
+}
+//carica dinamicamente il prodotto
+const productId = getQueryParam("id");
+console.log("Product ID ", productId)
 
 //chiamata API
-fetch("https://fakestoreapi.com/products/18")
+
+fetch(`https://fakestoreapi.com/products/${productId}`)
   .then((res) => res.json())
   .then((product) => {
     console.log(product);

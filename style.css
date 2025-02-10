@@ -64,7 +64,9 @@ margin-bottom: 15px;
     
     display: flex;
     float: left;
-    
+    margin-bottom: 15px;
+    width: 400px;
+    border-radius: 10px !important;
 }
  
 
@@ -72,7 +74,11 @@ margin-bottom: 15px;
 #gallery{
     margin: 15px;
     display: flex;
+    
     justify-content: space-evenly;
+    flex-wrap:wrap  !important;
+    
+   
 }
 #button{
 background-color: aliceblue !important ;
@@ -87,4 +93,14 @@ margin: 1px;
     
 }
 
-  
+.schiaccia {
+    background-color: black;
+    width: 150px;
+    border-radius: 10px;
+
+  }
+  .filtri{
+    display: flex;
+
+    justify-content: space-around !important;
+  }

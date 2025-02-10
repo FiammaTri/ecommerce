@@ -1,4 +1,4 @@
-   fetch('https://fakestoreapi.com/products')
+ fetch('https://fakestoreapi.com/products')
             .then(res=>res.json())
             .then(json=>{
               json.forEach(function(i){
@@ -34,7 +34,8 @@
 
 
     let image = document.createElement('img');
-   
+    image.style.width='200px';
+    image.style.textAlign='center';
     image.src= product.image;
     image.alt=product.title;
     image.classList.add('cards');

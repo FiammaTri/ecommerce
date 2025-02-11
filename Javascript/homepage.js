@@ -99,12 +99,13 @@ fetch('https://fakestoreapi.com/products/categories')
                 img.src = "/Img/abbigliamento-uomo.png"
                 p.innerHTML = category
             }
+            
 
-            testo.appendChild(p)
-            nav.appendChild(link)
-            nav.appendChild(img)
-            nav.appendChild(testo)
-            navigazione.appendChild(nav)
+            testo.appendChild(p);
+            link.appendChild(img);
+            link.appendChild(testo);
+            nav.appendChild(link);
+            navigazione.appendChild(nav);
 
         }
 

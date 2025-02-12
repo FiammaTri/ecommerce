@@ -29,7 +29,10 @@
     contenitore.style.width='400px';
     contenitore.classList.add('card');
   
-
+   let bottone=document.createElement('button');
+   bottone.style.color.purple;
+   bottone.textadd='premi';
+   bottone.classList.add('card-body');
 
 
 
@@ -56,6 +59,7 @@
 
     cardBody.appendChild(price);
     cardBody.appendChild(paragraph);
+    cardBody.appendChild(bottone);
     contenitore.appendChild(cardBody);
     gallery.appendChild(contenitore);
   }

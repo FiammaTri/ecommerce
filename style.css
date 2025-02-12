@@ -63,12 +63,21 @@ margin-bottom: 15px;
 .card{
     
     display: flex;
-    float: left;
+   
+    
     margin-bottom: 15px;
-    width: 400px;
+   
     border-radius: 10px !important;
 }
- 
+.card>img{
+    width: 400px;
+    
+    align-self: center;
+}
+.card>div{
+    text-align: center;
+    position: relative bottom;
+}
 
 
 #gallery{
@@ -101,6 +110,6 @@ margin: 1px;
   }
   .filtri{
     display: flex;
-
+flex-wrap: wrap;
     justify-content: space-around !important;
   }

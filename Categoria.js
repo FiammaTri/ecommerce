@@ -6,18 +6,6 @@
               });
             }
           )
-           
-          
-           
-              
-           
-            
-          
-
-
-
-
-
 
   function createCardElement(product) {
 
@@ -29,10 +17,6 @@
     contenitore.style.width='400px';
     contenitore.classList.add('card');
   
-
-
-
-
     let image = document.createElement('img');
    
     image.src= product.image;

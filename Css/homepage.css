@@ -22,12 +22,6 @@
   .testo-cat p {
     color: white;
   }
-  
-  .col-pref {
-    margin-top: 15px;
-    justify-content: center;
-    display: flex;
-  }
 
   .imgPromo {
     margin-top: 30px;
@@ -38,7 +32,7 @@
     margin-top: 30px;
     text-align: center;
   }
-
+  
   .sez-consigliati{
     margin-bottom: 30px;
   }
@@ -54,14 +48,19 @@
   }
 
 
- .col-cat a {
-  text-decoration: none;
-  color: white;
-  
-}
+  .col-cat a {
+    text-decoration: none;
+    color: white;    
+  }
 
 .spanfoot {
   font-weight: bold;
+}
+
+.col-pref {
+  margin-top: 15px;
+  justify-content: center;
+  display: flex;
 }
 
 .acquista {

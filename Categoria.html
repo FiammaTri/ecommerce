@@ -9,162 +9,78 @@
 
 </head>
 <body>
-    <h1 id="TITOLO"> CATEGORIA</h1>
+   
   
 
 
-
-  <!--HEADER-->
-  <nav class="head">
-    <div class="container text-center">
-      <!--sezione sopra-->
-      <div class="row justify-content-md-center">
-        <div class="col col-sd-12">
-          <a class="navbar-brand" href="#">
-            <img src="/immagini/GitHub-logo.png" alt="Logo" width="50px" class="d-inline-block align-text-top">
-          </a>
+    <nav class="head">
+      <div class="container text-center">
+        <!--sezione sopra-->
+        <div class="row justify-content-md-center">
+          <div class="col col-sd-12">
+            <a class="navbar-brand" href="#">
+              <img src="/immagini/moda-fashion-logo.png" alt="Logo" width="50px" class="d-inline-block align-text-top">
+            </a>
+          </div>
+          <div class="col-sd-8 col-6">
+            <form class="d-flex" role="search">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+          </div>
+          <div class="col col-sd-2">
+            <a href="#" class="btn btn-outline-success cart"><i class="fa-solid fa-cart-shopping"></i></a>
+          </div>
+  
         </div>
-        <div class="col-sd-8 col-6">
-          <form class="d-flex" role="search">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Search</button>
-          </form>
+        <!--sezione sotto-->
+        <div class="row justify-content-md-center navsotto" id="nav-bar-cat">
+  
         </div>
-        <div class="col col-sd-2">
-          <a href="#" class="btn btn-outline-success cart"><i class="fa-solid fa-cart-shopping"></i></a>
-        </div>
-
       </div>
-
-  </nav>
+    </nav>
 <!--filtri ricerca-->
 <div class="filtri">
-  <!-- Example split danger button -->
-  <div class="bottoni">
-    <button type="button" class="schiaccia">Generali</button>
-    <button type="button" class="schiaccia dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
-      <span class="visually-hidden">Toggle Dropdown</span>
-    </button>
-    <ul class="dropdown-menu">
-      <li><a class="dropdown-item" href="#">Action</a></li>
-      <li><a class="dropdown-item" href="#">Another action</a></li>
-      <li><a class="dropdown-item" href="#">Something else here</a></li>
-      <li><hr class="dropdown-divider"></li>
-      <li><a class="dropdown-item" href="#">Separated link</a></li>
-    </ul>
+  <div id="rate">
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="rating">
+      <label class="form-check-label" for="inlineCheckbox1">1</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="rating">
+      <label class="form-check-label" for="inlineCheckbox2">2</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="rating" >
+      <label class="form-check-label" for="inlineCheckbox3">3</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="rating" >
+      <label class="form-check-label" for="inlineCheckbox3">4</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="rating" >
+      <label class="form-check-label" for="inlineCheckbox3">5</label>
+    </div>
   </div>
-  <!-- Example split danger button -->
-  <div class="bottoni">
-    <button type="button" class="schiaccia"> Acquista per prezzo</button>
-    <button type="button" class="schiaccia dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
-      <span class="visually-hidden">Toggle Dropdown</span>
-    </button>
-    <ul class="dropdown-menu">
-      <li><a class="dropdown-item" href="#">Action</a></li>
-      <li><a class="dropdown-item" href="#">Another action</a></li>
-      <li><a class="dropdown-item" href="#">Something else here</a></li>
-      <li><hr class="dropdown-divider"></li>
-      <li><a class="dropdown-item" href="#">Separated link</a></li>
-    </ul>
-  </div>
-  <!-- Example split danger button -->
-  <div class="bottoni">
-    <button type="button" class="schiaccia">Sconti e offerte</button>
-    <button type="button" class="schiaccia dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
-      <span class="visually-hidden">Toggle Dropdown</span>
-    </button>
-    <ul class="dropdown-menu">
-      <li><a class="dropdown-item" href="#">Action</a></li>
-      <li><a class="dropdown-item" href="#">Another action</a></li>
-      <li><a class="dropdown-item" href="#">Something else here</a></li>
-      <li><hr class="dropdown-divider"></li>
-      <li><a class="dropdown-item" href="#">Separated link</a></li>
-    </ul>
-  </div>
-  <!-- Example split danger button -->
-  <div class="bottoni">
-    <button type="button" class="schiaccia">Size</button>
-    <button type="button" class="schiaccia dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
-      <span class="visually-hidden">Toggle Dropdown</span>
-    </button>
-    <ul class="dropdown-menu">
-      <li><a class="dropdown-item" href="#">Action</a></li>
-      <li><a class="dropdown-item" href="#">Another action</a></li>
-      <li><a class="dropdown-item" href="#">Something else here</a></li>
-      <li><hr class="dropdown-divider"></li>
-      <li><a class="dropdown-item" href="#">Separated link</a></li>
-    </ul>
-  </div>
-  <!-- Example split danger button -->
-  <div class="bottoni">
-    <button type="button" class="schiaccia">Colore</button>
-    <button type="button" class="schiaccia dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
-      <span class="visually-hidden">Toggle Dropdown</span>
-    </button>
-    <ul class="dropdown-menu">
-      <li><a class="dropdown-item" href="#">Action</a></li>
-      <li><a class="dropdown-item" href="#">Another action</a></li>
-      <li><a class="dropdown-item" href="#">Something else here</a></li>
-      <li><hr class="dropdown-divider"></li>
-      <li><a class="dropdown-item" href="#">Separated link</a></li>
-    </ul>
-  </div>
-  <!-- Example split danger button -->
-  <div class="bottoni">
-    <button type="button" class="schiaccia">Vita</button>
-    <button type="button" class="schiaccia dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
-      <span class="visually-hidden">Toggle Dropdown</span>
-    </button>
-    <ul class="dropdown-menu">
-      <li><a class="dropdown-item" href="#">Action</a></li>
-      <li><a class="dropdown-item" href="#">Another action</a></li>
-      <li><a class="dropdown-item" href="#">Something else here</a></li>
-      <li><hr class="dropdown-divider"></li>
-      <li><a class="dropdown-item" href="#">Separated link</a></li>
-    </ul>
-  </div><!-- Example split danger button -->
-  <div class="bottoni">
-    <button type="button" class="schiaccia">Collezioni</button>
-    <button type="button" class="schiaccia dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
-      <span class="visually-hidden">Toggle Dropdown</span>
-    </button>
-    <ul class="dropdown-menu">
-      <li><a class="dropdown-item" href="#">Action</a></li>
-      <li><a class="dropdown-item" href="#">Another action</a></li>
-      <li><a class="dropdown-item" href="#">Something else here</a></li>
-      <li><hr class="dropdown-divider"></li>
-      <li><a class="dropdown-item" href="#">Separated link</a></li>
-    </ul>
-  </div>
-  <!-- Example split danger button -->
-  <div class="bottoni">
-    <button type="button" class="schiaccia">Sport</button>
-    <button type="button" class="schiaccia dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
-      <span class="visually-hidden">Toggle Dropdown</span>
-    </button>
-    <ul class="dropdown-menu">
-      <li><a class="dropdown-item" href="#">Action</a></li>
-      <li><a class="dropdown-item" href="#">Another action</a></li>
-      <li><a class="dropdown-item" href="#">Something else here</a></li>
-      <li><hr class="dropdown-divider"></li>
-      <li><a class="dropdown-item" href="#">Separated link</a></li>
-    </ul>
-  </div>
-  <!-- Example split danger button -->
-  <div class="bottoni">
-    <button type="button" class="schiaccia">Caratteristiche</button>
-    <button type="button" class="schiaccia dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
-      <span class="visually-hidden">Toggle Dropdown</span>
-    </button>
-    <ul class="dropdown-menu">
-      <li><a class="dropdown-item" href="#">Action</a></li>
-      <li><a class="dropdown-item" href="#">Another action</a></li>
-      <li><a class="dropdown-item" href="#">Something else here</a></li>
-      <li><hr class="dropdown-divider"></li>
-      <li><a class="dropdown-item" href="#">Separated link</a></li>
-    </ul>
+</div>
+  <div id="value">
+    <h3>Prezzo</h3>
+    <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
+      <input type="checkbox" class="minore" class="btn-check" id="btncheck1" autocomplete="off">
+      <label class="btn btn-outline-primary" for="btncheck1">-10</label>
+    
+      <input type="checkbox" class="compreso" class="btn-check" id="btncheck2" autocomplete="off">
+      <label class="btn btn-outline-primary" for="btncheck2">10-50</label>
+    
+      <input type="checkbox" class="maggiore" class="btn-check" id="btncheck3" autocomplete="off">
+      <label class="btn btn-outline-primary" for="btncheck3">50+</label>
+    </div>
   </div>
   </div>
+  
+  
+  
        
      <div id="gallery">
 

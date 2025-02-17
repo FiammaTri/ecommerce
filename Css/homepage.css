@@ -13,6 +13,8 @@
     margin-top: 15px;
     margin-bottom: 30px;
     position: relative;
+    cursor: pointer;
+   
   }
 
   .col-cat:hover{
@@ -35,6 +37,7 @@
   
   .sez-consigliati{
     margin-bottom: 30px;
+   
   }
 
   .testo-cat {
@@ -91,5 +94,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-   padding: 30px;
+    padding: 30px;
+    
   }

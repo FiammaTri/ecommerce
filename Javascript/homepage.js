@@ -1,18 +1,18 @@
-fetch('https://fakestoreapi.com/products/15') 
-            .then(res=>res.json())
-            .then(json=>{console.log(json)
-                const card1 = document.getElementById('col-pref-donna')
-                console.log(card1);
-                const titolo = document.querySelector('#col-pref-donna h5')
-                console.log(titolo);
-                titolo.innerHTML = json.title;
-                //const desc = document.querySelector('#col-pref-donna p')
-                //desc.innerHTML = json.description;
-                const prezzo = document.querySelector('#col-pref-donna span')
-                prezzo.innerHTML = json.price;
-                const immagine = document.querySelector('#col-pref-donna img')
-                immagine.src = json.image;
-            })
+fetch('https://fakestoreapi.com/products/15')
+    .then(res => res.json())
+    .then(json => {
+        const card1 = document.getElementById('col-pref-donna')
+        const titolo = document.querySelector('#col-pref-donna h5')
+        titolo.innerHTML = json.title;
+        //const desc = document.querySelector('#col-pref-donna p')
+        //desc.innerHTML = json.description;
+        const prezzo = document.querySelector('#col-pref-donna span')
+        prezzo.innerHTML = json.price;
+        const immagine = document.querySelector('#col-pref-donna img')
+        immagine.src = json.image;
+        const link = document.querySelector('#col-pref-donna a')
+        link.href = "Prodotto.html?productid=15"
+    })
 
 fetch('https://fakestoreapi.com/products/4')
     .then(res => res.json())
@@ -84,19 +84,19 @@ fetch('https://fakestoreapi.com/products/categories')
             const p = document.createElement("p")
 
             if (category == "women's clothing") {
-                img.src = "/Img/abbigliamento-donna.png"
+                img.src = "../Img/abbigliamento-donna.png"
                 p.innerHTML = "Abbigliamento donna"
             } else if (category == "men's clothing") {
-                img.src = "/Img/abbigliamento-uomo.png"
+                img.src = "../Img/abbigliamento-uomo.png"
                 p.innerHTML = "Abbigliamento uomo"
             } else if (category == "jewelery") {
-                img.src = "/Img/gioielli.png"
+                img.src = "../Img/gioielli.png"
                 p.innerHTML = "Gioielli"
             } else if (category == "electronics") {
-                img.src = "/Img/elettronica.png"
+                img.src = "../Img/elettronica.png"
                 p.innerHTML = "Elettronica"
             } else {
-                img.src = "/Img/abbigliamento-uomo.png"
+                img.src = "../Img/abbigliamento-uomo.png"
                 p.innerHTML = category
             }
 

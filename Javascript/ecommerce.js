@@ -7,7 +7,7 @@ function getQueryParam(param){
   return identification.get(param)
 }
 //carica dinamicamente il prodotto
-const productId = getQueryParam("id");
+const productId = getQueryParam("productid");
 console.log("Product ID ", productId)
 
 //chiamata API

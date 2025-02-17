@@ -39,7 +39,7 @@ body {
 
 .foto-principale-img {
     float:left;
-    min-width: 300px; 
+    width: 300px; 
     max-width: 350px;
     height: auto;
     border-radius: 10px;

@@ -14,9 +14,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.ecommerceSpring.auth.TokenService;
 import com.example.ecommerceSpring.exception.ResourceNotFoundException;
+import com.example.ecommerceSpring.model.Ordine;
 import com.example.ecommerceSpring.model.User;
+import com.example.ecommerceSpring.repository.OrdineRepository;
 import com.example.ecommerceSpring.repository.UserRepository;
-
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -32,7 +33,11 @@ public class UserController {
 	@Autowired
 	private UserRepository userRepository;
 
+	@Autowired
+	private OrdineRepository ordineRepository;
+
 	// Metodo per ottenere una lista di tutti gli utenti
+	// solo per admin
 	@GetMapping
 	public List<User> getAllUser() {
 		return userRepository.findAll();
@@ -41,7 +46,8 @@ public class UserController {
 	// Metodo per creare un nuovo utente
 	@PostMapping
 	public Object createUser(@RequestBody User user, HttpServletResponse response) {
-		if (user.getEmail()==null || user.getName()==null || user.getSurname()==null || user.getUsername()==null || user.getPassword()==null) {
+		if (user.getEmail() == null || user.getName() == null || user.getSurname() == null || user.getUsername() == null
+				|| user.getPassword() == null) {
 			response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
 			return Collections.singletonMap("message", "Compilare tutti i campi obbligatori");
 		}
@@ -50,17 +56,11 @@ public class UserController {
 
 	// metodo per ottenere uno specifico utente tramite ID
 	// Controllo che entra in funzione quando si vuole accedere al profilo
-	@GetMapping("/profilo/{id}")
-	public Object getUserById(@PathVariable Long id, HttpServletRequest request, HttpServletResponse response) {
+	@GetMapping("/profile")
+	public Object getUserById(HttpServletRequest request, HttpServletResponse response) {
 		// Ottiene l'utente autenticato dal token
 		User authUser = getAuthenticatedUser(request);
 		if (authUser == null) {
-			response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
-			return Collections.singletonMap("message", "Non autorizzato");
-		}
-		// Controllo se l'id del token è diverso da l'id passato nell'URL
-		// authUser.getId()!=id
-		if (!(authUser.getId() == id)) {
 			response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
 			return Collections.singletonMap("message", "Non autorizzato");
 		}
@@ -96,16 +96,12 @@ public class UserController {
 	}
 
 	/**
-	 * Endpoint riservato agli amministratori che consente di aggiungere un nuovo
-	 * utente. Richiede un token valido e che l'utente autenticato abbia il ruolo
-	 * "admin".
+	 * Endpoint che consente di aggiungere un nuovo utente.
 	 *
 	 * @param newUser  Oggetto User da aggiungere (ricevuto in formato JSON)
-	 * @param request  Oggetto HttpServletRequest per leggere l'header
-	 *                 "Authorization"
 	 * @param response Oggetto HttpServletResponse per impostare lo status in caso
 	 *                 di errore
-	 * @return Messaggio di successo oppure errore
+	 * @return Messaggio di successo
 	 */
 	@PostMapping("/addUser")
 	public Object addUser(@RequestBody User newUser) {
@@ -114,4 +110,28 @@ public class UserController {
 		return Collections.singletonMap("message", "Utente aggiunto con successo");
 	}
 
+	/*
+	 * Endpoint per prendere tutti gli ordini dato un id
+	 * 
+	 */
+	@GetMapping("/ordini")
+	public Object getOrdersByToken(HttpServletRequest request, HttpServletResponse response) {
+
+		// Ottiene l'utente autenticato dal token
+		User user = getAuthenticatedUser(request);
+		if (user == null) {
+			response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
+			return Collections.singletonMap("message", "Utente non trovato");
+		}
+
+	    System.out.println("Utente recuperato: {}" + user); // Stampa l'utente
+		// Trovare tutti gli ordini associati all'id di user
+	    List<Ordine> ordini = ordineRepository.findByUser(user);
+	    System.out.println("Ordini trovati: {}" + ordini);
+		return ordineRepository.findAll();
+	}
+
+	/*
+	 * Endpoint per aggiungere un ordine ad un user
+	 */
 }

@@ -36,8 +36,6 @@ fetch('https://fakestoreapi.com/products/categories')
               });
             }
           )
-<<<<<<< HEAD
-=======
      }
            
  function getProductsCategory(category){
@@ -68,7 +66,6 @@ fetch('https://fakestoreapi.com/products/categories')
 
 
 
->>>>>>> 7fd1c52473d4bf2e01cd592eb952d2734eee7f38
 
   function createCardElement(product) {
 
@@ -80,8 +77,6 @@ fetch('https://fakestoreapi.com/products/categories')
     contenitore.style.width='400px';
     contenitore.classList.add('card');
   
-<<<<<<< HEAD
-=======
    let bottone=document.createElement('button');
    bottone.style.color.purple;
    
@@ -94,7 +89,6 @@ fetch('https://fakestoreapi.com/products/categories')
   
 
 
->>>>>>> 7fd1c52473d4bf2e01cd592eb952d2734eee7f38
     let image = document.createElement('img');
     image.style.width='200px';
     image.style.height='250px';

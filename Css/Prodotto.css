@@ -1,89 +1,100 @@
 body {
     font-family: Arial, sans-serif;
-    margin-top: 5%;
-
+    margin: 0;
 }
 
 .flex-container {
     display: flex;
-    max-width: 900px;
     margin: auto;
     gap: 20px;
-    flex-direction: row;
     margin-top: 30px;
+    align-items: flex-start;
+    justify-content: center; 
+    flex-wrap: wrap; 
+    width: 100%;
+    background-color: white !important;
+    
 }
 
-.miniatura {
+.conta {
     display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
+    width: 90%;
+    margin: auto;
+    height: auto;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
 
-.miniatura img {
-    width: 50px;
-    cursor: pointer;
-    border: 2px solid transparent;
-    border-radius: 10px;
-    flex-direction: column;
 }
-
-.miniatura img:hover {
-    border: 3px solid rgb(0, 0, 0);
+.row {
+    display: flex;
+    gap: 40px; 
+    align-items: flex-start;
+    width: 100%;
 }
 .foto-principale {
-    flex: 2;
-    max-width: 100%;
-
+    flex: 40%; 
+    display: block;
 }
-
-.foto-principale img {
-    width: 100%;
-    max-width: 300px;
+.foto-principale-img {
+    float:left; 
+   width: 50%;
     height: auto;
     border-radius: 10px;
-    flex-direction: column;
+    box-shadow: 5px 5px 18px;
+    margin-bottom: 20%;
+    margin-top: 5%;
+    margin-left: 30%;
+    padding: 5%;
+    aspect-ratio: 3 / 3 ;
 }
-
 
 
 .descrizione-prodotto {
+    margin-top: 5%;
+    flex: 2;
     display: flex;
-    flex-direction: column;
-    gap: 0px;
-    margin-left: 13px;
+    flex-direction: column; 
+    max-width: 60%; 
+    justify-content: space-between;
+    padding-right: 5px;
+   text-align: left;
 }
+
 .container-color, .container-size {
     border-radius: 40px;
     padding: 10px;
-    font-size: 20px;
+    font-size: 18px;
     background-color: white;
     cursor: pointer;
-    
+    width: 100%;
+    max-width: 500px;
 }
+
 select {
-    display: flex;
-    width: 100%; 
-    height: 40px; 
-    font-size: 18px; 
-    border-radius: 10px; 
+    width: 100%;
+    height: 40px;
+    font-size: 18px;
+    border-radius: 10px;
     padding: 5px;
     cursor: pointer;
-    display: block; 
-}
-.btn-dark:hover{
-    background-color: whitesmoke ;
-    color: black;
 }
 
 .btn-dark {
     background-color: rgb(0, 0, 0);
-    color: rgb(255, 255, 255);
+    color: white;
     padding: 15px 20px;
     margin-top: 10px;
     cursor: pointer;
     width: auto;
     border-radius: 30px;
-    font-size: 15px;
     align-self: flex-start;
-    transition: background-color 0.50s ease; 
+    transition: background-color 0.5s ease;
+    margin-right: 25px;
+    text-align: left;
+}
+
+.btn-dark:hover {
+    background-color: whitesmoke;
+    color: black;
 }

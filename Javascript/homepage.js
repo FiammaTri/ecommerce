@@ -69,13 +69,13 @@ fetch('https://fakestoreapi.com/products/12')
 fetch('https://fakestoreapi.com/products/categories')
     .then(res => res.json())
     .then(json => {
-        console.log(json)
+
         for (let category of json) {
             const navigazione = document.getElementById("card-cat")
             const nav = document.createElement("div")
             nav.classList.add("col-6", "col-md-3", "col-cat")
             const link = document.createElement("a")
-            link.href = "../Categoria.html?category=" + category;
+            link.href = "Categoria.html?category=" + category;
             const img = document.createElement("img")
             img.classList.add("img-fluid")
             img.alt = category
@@ -99,13 +99,12 @@ fetch('https://fakestoreapi.com/products/categories')
                 img.src = "../Img/abbigliamento-uomo.png"
                 p.innerHTML = category
             }
-            //console.log("Link creato: " + link.href);
-            testo.appendChild(p);
-            link.appendChild(img);
-            link.appendChild(testo);
-            nav.appendChild(link);
-            navigazione.appendChild(nav);
-
+     //console.log("Link creato: " + link.href);
+     testo.appendChild(p);
+     link.appendChild(img);
+     link.appendChild(testo);
+     nav.appendChild(link);
+     navigazione.appendChild(nav);
         }
         
 

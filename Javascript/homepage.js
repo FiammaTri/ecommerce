@@ -99,7 +99,7 @@ fetch('https://fakestoreapi.com/products/categories')
                 img.src = "../Img/abbigliamento-uomo.png"
                 p.innerHTML = category
             }
-            console.log("Link creato: " + link.href);
+            //console.log("Link creato: " + link.href);
             
             testo.appendChild(p);
             link.appendChild(img);

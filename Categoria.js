@@ -65,8 +65,6 @@ fetch('https://fakestoreapi.com/products/categories')
 
 
 
-
-
   function createCardElement(product) {
 
 
@@ -77,6 +75,7 @@ fetch('https://fakestoreapi.com/products/categories')
     contenitore.style.width='400px';
     contenitore.classList.add('card');
   
+
    let bottone=document.createElement('button');
    bottone.style.color.purple;
    
@@ -87,7 +86,6 @@ fetch('https://fakestoreapi.com/products/categories')
     
   });
   
-
 
     let image = document.createElement('img');
     image.style.width='200px';

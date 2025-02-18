@@ -84,19 +84,19 @@ fetch('https://fakestoreapi.com/products/categories')
             const p = document.createElement("p")
 
             if (category == "women's clothing") {
-                img.src = "/Img/abbigliamento-donna.png"
+                img.src = "../Img/abbigliamento-donna.png"
                 p.innerHTML = "Abbigliamento donna"
             } else if (category == "men's clothing") {
-                img.src = "/Img/abbigliamento-uomo.png"
+                img.src = "../Img/abbigliamento-uomo.png"
                 p.innerHTML = "Abbigliamento uomo"
             } else if (category == "jewelery") {
-                img.src = "/Img/gioielli.png"
+                img.src = "../Img/gioielli.png"
                 p.innerHTML = "Gioielli"
             } else if (category == "electronics") {
-                img.src = "/Img/elettronica.png"
+                img.src = "../Img/elettronica.png"
                 p.innerHTML = "Elettronica"
             } else {
-                img.src = "/Img/abbigliamento-uomo.png"
+                img.src = "../Img/abbigliamento-uomo.png"
                 p.innerHTML = category
             }
 

@@ -140,14 +140,6 @@ paymentBtn.addEventListener("click", (event) => {
   paymentValidation(event);
 });
 
-// IDEAS
-
-//  ABLE TO CHANGE QUANTITTY AND UPDATE TOTAL PRICE AT THE SAME TIME
-// function updateProductQuantity(element, price) {
-//   element.previousElementSibling.innerHTML = (price * element.value).toFixed(2) + "$";
-//   updatePrice();
-// }
-
 // ABLE TO GETCARELLO() FROM AN ARRAY PASSED FROM QUERY STRING
 function getCarelloFromArray(arrayCarrello) {
   const URL = "https://fakestoreapi.com/products";

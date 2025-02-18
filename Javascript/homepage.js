@@ -100,7 +100,6 @@ fetch('https://fakestoreapi.com/products/categories')
                 p.innerHTML = category
             }
             //console.log("Link creato: " + link.href);
-            
             testo.appendChild(p);
             link.appendChild(img);
             link.appendChild(testo);

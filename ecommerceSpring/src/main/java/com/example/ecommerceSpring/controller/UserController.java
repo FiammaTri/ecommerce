@@ -1,21 +1,24 @@
 package com.example.ecommerceSpring.controller;
 
+import java.time.LocalDate;
 import java.util.Collections;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.ecommerceSpring.auth.TokenService;
-import com.example.ecommerceSpring.exception.ResourceNotFoundException;
 import com.example.ecommerceSpring.model.Ordine;
+import com.example.ecommerceSpring.model.OrdineDettagli;
 import com.example.ecommerceSpring.model.User;
+import com.example.ecommerceSpring.repository.OrdineDettagliRepository;
 import com.example.ecommerceSpring.repository.OrdineRepository;
 import com.example.ecommerceSpring.repository.UserRepository;
 
@@ -25,6 +28,7 @@ import jakarta.servlet.http.HttpServletResponse;
 @RestController
 @Validated
 @RequestMapping("/users")
+@CrossOrigin(origins = "*")
 public class UserController {
 
 	@Autowired
@@ -35,6 +39,9 @@ public class UserController {
 
 	@Autowired
 	private OrdineRepository ordineRepository;
+	
+	@Autowired
+	private OrdineDettagliRepository ordineDettagliRepository;
 
 	// Metodo per ottenere una lista di tutti gli utenti
 	// solo per admin
@@ -106,6 +113,9 @@ public class UserController {
 	@PostMapping("/addUser")
 	public Object addUser(@RequestBody User newUser) {
 		// Salva il nuovo utente nel database
+		if (newUser.getPiva().equalsIgnoreCase("")) {
+			newUser.setPiva(null);
+		}
 		userRepository.save(newUser);
 		return Collections.singletonMap("message", "Utente aggiunto con successo");
 	}
@@ -123,15 +133,40 @@ public class UserController {
 			response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
 			return Collections.singletonMap("message", "Utente non trovato");
 		}
-
-	    System.out.println("Utente recuperato: {}" + user); // Stampa l'utente
 		// Trovare tutti gli ordini associati all'id di user
 	    List<Ordine> ordini = ordineRepository.findByUser(user);
-	    System.out.println("Ordini trovati: {}" + ordini);
-		return ordineRepository.findAll();
+
+		return ordineRepository.findByUser(user);
 	}
 
 	/*
 	 * Endpoint per aggiungere un ordine ad un user
 	 */
+	@PostMapping("/ordini")
+	public Object postOrdersByToken(@RequestBody Map<String, Map<String, Integer>> cart, HttpServletRequest request, HttpServletResponse response) {
+		// Controllo se c'e un utente con questo  token
+		User user = getAuthenticatedUser(request);
+		System.out.println(user);
+		System.out.println("I was here");
+		if (user == null) {
+			response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
+			return Collections.singletonMap("message", "Utente non trovato");
+		}
+		// Creo Ordine Object
+		Ordine ordine = new Ordine();
+		ordine.setUser(user);
+		ordine.setData_ordine(LocalDate.now());
+		final Ordine ordineSalvato = ordineRepository.save(ordine);
+		
+		cart.forEach((key, value) -> {
+			// Per ogni chiave - valore crea un OrdineDettali
+			OrdineDettagli ordineDettagli = new OrdineDettagli();
+			ordineDettagli.setIdProdotto(Long.parseLong(key));
+			ordineDettagli.setOrdine(ordineSalvato);
+			ordineDettagli.setQuantita(value.get("quantity"));
+			ordineDettagliRepository.save(ordineDettagli);
+		});
+		
+		return Collections.singletonMap("message", "Ordine aggiunto con successo");
+	}
 }

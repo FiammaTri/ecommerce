@@ -1,5 +1,7 @@
 package com.example.ecommerceSpring.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -16,6 +18,7 @@ public class OrdineDettagli {
 	
 	@ManyToOne
 	@JoinColumn(name="ordine_id")
+	@JsonBackReference
 	private Ordine ordine;
 	
 	//id del prodotto acquistato
@@ -23,4 +26,38 @@ public class OrdineDettagli {
 	
 	//quantità dei prodotti acquistati
 	private int quantita;
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public Ordine getOrdine() {
+		return ordine;
+	}
+
+	public void setOrdine(Ordine ordine) {
+		this.ordine = ordine;
+	}
+
+	public Long getIdProdotto() {
+		return idProdotto;
+	}
+
+	public void setIdProdotto(Long idProdotto) {
+		this.idProdotto = idProdotto;
+	}
+
+	public int getQuantita() {
+		return quantita;
+	}
+
+	public void setQuantita(int quantita) {
+		this.quantita = quantita;
+	}
+	
+	
 }

@@ -1,8 +1,12 @@
-document.addEventListener("DOMContentLoaded", function () {
-    document.getElementById("loginForm").addEventListener("click", async function (event) {
+
+    const token = localStorage.getItem("authToken");
+    if (token != null) {
+        window.location.href="Homepage.html"
+    }
+    document.getElementById("LoginForm").addEventListener("submit", (event) => {
         event.preventDefault(); // Impedisce il refresh della pagina
 
-        const email = document.getElementById("email").value.trim();
+        const username = document.getElementById("username").value.trim();
         const password = document.getElementById("password").value.trim();
         const privacyChecked = document.getElementById("privacy").checked;
 
@@ -11,32 +15,37 @@ document.addEventListener("DOMContentLoaded", function () {
             return;
         }
 
-        if (!email || !password) {
-            alert("Inserisci email e password!");
+        if (!username || !password) {
+            alert("Inserisci username e password!");
             return;
         }
 
-        try {
-            const response = await fetch("http://localhost:8080/users/login", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({ email, password })
-            });
-
-            const data = await response.json();
-
-            if (response.ok) {
-                localStorage.setItem("token", data.token); // Salva il token
-                alert("Login effettuato con successo!");
-                window.location.href = "Profile.html"; // Reindirizza alla pagina protetta
-            } else {
-                alert(data.message + "Credenziali errate");
+        fetch("http://localhost:8080/api/login", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                "username" : username,
+                "password" : password
+            })
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Errore di login');
             }
-        } catch (error) {
-            console.error("Errore di login:", error);
-            alert("Errore di connessione al server.");
-        }
+            return response.json()
+        })
+        .then(data => {
+            const token = data.token;
+
+            //Aggiungere nel mio localStorage
+            localStorage.setItem("authToken", token)
+            window.location.href= "Homepage.html";
+        })
+        .catch(error => {
+            console.error('Errore: ', error);
+        });
+
     });
-});
+

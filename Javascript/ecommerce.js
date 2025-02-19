@@ -2,13 +2,13 @@ function ClickOnFoto(path) {
   document.getElementById("foto-principale").src = path;
 }
 //funzione per tottenere il prodotto dall'url
-function getQueryParam(param){
-  let identification= new URLSearchParams(window.location.search)
-  return identification.get(param)
+function getQueryParam(param) {
+  let identification = new URLSearchParams(window.location.search);
+  return identification.get(param);
 }
 //carica dinamicamente il prodotto
 const productId = getQueryParam("productid");
-console.log("Product ID ", productId)
+console.log("Product ID ", productId);
 
 //chiamata API
 
@@ -31,26 +31,21 @@ fetch(`https://fakestoreapi.com/products/${productId}`)
             <p><span style="color:black">Descrizione:</span> ${product.description}</p>
             <p><span style="color:black">Prezzo:</span> $${product.price}</p>
 
-            <button  class="btn btn-dark" href="Carrello.html" type="button" onClick="addToCart('${productId}','${product.title}','${product.image}','${product.price}')"> Aggiungi al carrello</button>
+            <button  class="btn btn-dark" href="Carrello.html" type="button" onClick="addToCart('${productId}')"> Aggiungi al carrello</button>
         </div>
     </div>
   </div>
         `;
   })
   .catch((error) => console.error("Errore nel recupero del prodotto:", error));
-  
-  let cart = [];  
-  function addToCart(id, title, image, price){
-          
-            let prodotto={
-               id:id,
-              title:title,
-              image:image,
-              price:price
-            
-          };
-          cart.push(prodotto)
-    alert(`${title}  è stato aggiunto al carrello`);
-  
-        }
 
+function addToCart(id) {
+  let cart = JSON.parse(localStorage.getItem("cart")) || {};
+  if (cart[id]) {
+    cart[id].quantity += 1;
+  } else {
+    cart[id] = { quantity : 1};
+  }
+  localStorage.setItem("cart", JSON.stringify(cart));
+  alert(`${id}  è stato aggiunto al carrello`);
+}

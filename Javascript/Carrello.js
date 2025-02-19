@@ -89,11 +89,17 @@ function paymentValidation(event) {
   }
 
   const carrello = JSON.parse(localStorage.getItem("cart"));
+  const token = localStorage.getItem("authToken");
+  if (token == null) {
+    window.alert("Effettua un log in")
+    return;
+  }
+  const header = token ? { Authorization: "Bearer " + token,
+    "Content-Type" : "application/json"
+   } : {};
   fetch("http://localhost:8080/users/ordini", {
     method: "POST",
-    headers: { 'Authorization': 'Bearer ' + "f8241bd4-c7c1-457a-bed5-91ce88c51af4",
-      "Content-Type" : "application/json"
-     },
+    headers: header,
     body: JSON.stringify(carrello)
   })
   .then(response => {
@@ -108,7 +114,6 @@ function paymentValidation(event) {
   })
   .catch(error => {
     console.error('Errore nel recupero dei nomi:', error);
-    printOutput({ error: error.message });
 });
 }
 
@@ -145,12 +150,12 @@ updateCarrello();
 
 function esempio() {
   const carrello = {
-    1: {
-      quantity: 3
+    3: {
+      quantity: 5
     },
 
-    15: {
-      quantity: 3
+    10: {
+      quantity: 2
     }
   }
   localStorage.setItem("cart", JSON.stringify(carrello))

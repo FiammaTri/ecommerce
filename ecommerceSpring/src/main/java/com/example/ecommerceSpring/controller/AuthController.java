@@ -20,7 +20,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 @RestController
 @RequestMapping("/api")
-@CrossOrigin(origins = {}) // Disabilita richieste CORS da origini esterne
+@CrossOrigin(origins = "*") // Disabilita richieste CORS da origini esterne
 public class AuthController {
 
 	@Autowired
@@ -42,7 +42,7 @@ public class AuthController {
 		// Estrae username e password dalla richiesta JSON
 		String username = body.get("username");
 		String password = body.get("password");
-
+		System.out.println(username + " " + password);
 		// Mappa per la risposta
 		Map<String, String> result = new HashMap<>();
 

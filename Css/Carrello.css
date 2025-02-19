@@ -78,6 +78,8 @@ ul {
     display: none;
   }
 
-.row i {
+#payment-card i {
     font-size: x-large;
+    opacity: 0.8;
+    color: rgb(135, 76, 254);
 }

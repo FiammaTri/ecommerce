@@ -10,10 +10,42 @@
       integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
       crossorigin="anonymous"
     />
-    <script src="../Javascript/profilo.js" defer></script>
+    <link rel="stylesheet" href="../Css/Base.css">
     <link rel="stylesheet" href="../Css/Profile.css" />
   </head>
-  <body onload="loadProfile()">
+  <body>
+     <!--HEADER-->
+   <nav class="head"> 
+    <div class="container text-center">
+      <!--sezione sopra-->
+      <div class="row justify-content-md-center">
+        <div class="col col-sd-12">
+          <a class="navbar-brand" href="../Html/Homepage.html">
+            <img src="/Img/moda-fashion-logo.png" alt="Logo" width="40px" class="d-inline-block align-text-top">
+          </a>
+          </div>
+          <div class="col-sd-8 col-6">
+          <form class="d-flex" role="search">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+          </form>
+        </div>
+        <div class="col col-sd-2">
+        <div class="col col-sd-2">
+          <a href="../Html/Profile.html" class="btn btn-outline-success profile">
+            <i class="fa-solid fa-user"></i></a>
+        <a href="../Html/Carrello.html" class="btn btn-outline-success cart"><i class="fa-solid fa-cart-shopping"></i></a>
+        </div>
+        
+      </div>
+      
+      <!--sezione sotto-->
+      <div class="row justify-content-md-center navsotto" id="nav-bar-cat">
+        
+      </div>
+    </div>
+   </nav>
+
     <div class="container">
       <div class="main-body">
         <div class="row gutters-sm">
@@ -29,8 +61,7 @@
                   />
                   <div class="mt-3">
                     <h4 id="user-name"></h4> 
-                    <p class="text-muted font-size-sm" id="user-location">Bay Area, San Francisco, CA</p> <!-- Location dinamica -->
-                    <button class="btn btn-outline-primary" id="logoutButton" style="display:none">Logout</button>
+                    <button class="btn btn-outline-primary" id="logoutButton" onClick="logoutFunction()">Logout</button>
                   </div>
                 </div>
               </div>
@@ -43,35 +74,35 @@
                   <div class="col-sm-3">
                     <h6 class="mb-0">Name</h6>
                   </div>
-                  <div class="col-sm-9 text-sm-end text-secondary" id="profile-name">Kenneth</div> <!-- Nome dinamico -->
+                  <div class="col-sm-9 text-sm-end text-secondary" id="profile-name"></div> <!-- Nome dinamico -->
                 </div>
                 <hr />
                 <div class="row">
                   <div class="col-sm-3">
                     <h6 class="mb-0">Surname</h6>
                   </div>
-                  <div class="col-sm-9 text-sm-end text-secondary" id="profile-surname">Valdez</div> <!-- Cognome dinamico -->
+                  <div class="col-sm-9 text-sm-end text-secondary" id="profile-surname"></div> <!-- Cognome dinamico -->
                 </div>
                 <hr />
                 <div class="row">
                   <div class="col-sm-3">
                     <h6 class="mb-0">Email</h6>
                   </div>
-                  <div class="col-sm-9 text-sm-end text-secondary" id="profile-email">fip@jukmuh.al</div> <!-- Email dinamica -->
+                  <div class="col-sm-9 text-sm-end text-secondary" id="profile-email"></div> <!-- Email dinamica -->
                 </div>
                 <hr />
                 <div class="row">
                   <div class="col-sm-3">
                     <h6 class="mb-0">Partita IVA</h6>
                   </div>
-                  <div class="col-sm-9 text-sm-end text-secondary" id="profile-piva">FR 89 128370925</div> <!-- Partita IVA dinamica -->
+                  <div class="col-sm-9 text-sm-end text-secondary" id="profile-piva"></div> <!-- Partita IVA dinamica -->
                 </div>
                 <hr />
                 <div class="row">
                   <div class="col-sm-3">
                     <h6 class="mb-0">Username</h6>
                   </div>
-                  <div class="col-sm-9 text-sm-end text-secondary" id="profile-username">annina87</div> <!-- Username dinamico -->
+                  <div class="col-sm-9 text-sm-end text-secondary" id="profile-username"></div> <!-- Username dinamico -->
                 </div>
                 <hr />
                 <div class="row">
@@ -91,6 +122,11 @@
       </div>
     </div>
 
+    <div class="container" id="ordini-container">
+      <h1>Ordini</h1>
+    </div>
+    <script src="../Javascript/header.js"></script>
+    <script src="https://kit.fontawesome.com/b7c0adacbf.js" crossorigin="anonymous"></script>  
     <script src="../Javascript/Profile.js"></script>
   </body>
 </html>

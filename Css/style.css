@@ -1,70 +1,8 @@
-.head {
-    background-color:rgb(112, 44, 249, 0.1) !important;
-    padding-top: 15px;
-    
-}
-
-.navsotto{
-    margin-top: 10px;
-}
-
-
-.navcat{
-    
-    padding:10px;
-}
-.navcat:hover {
-    background-color: rgb(112, 44, 249) !important;
-    color:white;
-}
-
-/* BOTTONI */
-.cart {
-    background-color: rgb(112, 44, 249) !important;
-    color: white !important;
-    border-color: rgb(112, 44, 249) !important;
-    border-width: 2px !important;
-}
-
-.cart:hover{
-    background-color: white !important;
-    color: rgb(112, 44, 249) !important;
-    border-color: rgb(112, 44, 249) !important;
-}
-button {
-    background-color: rgb(112, 44, 249) !important;
-    color: white !important;
-    border-color: rgb(112, 44, 249) !important;
-    border-width: 2px !important;
-}
-
-button:hover{
-    background-color: white !important;
-    color: rgb(112, 44, 249) !important;
-    border-color: rgb(112, 44, 249) !important;
-}
-
-/* FOOTER */
-
-.foot {
-    
-    bottom: 0px;
-    padding-bottom: 10px;
-    width: 100%;
-    background-color: lightgray;
-}
-
-.social {
-margin-bottom: 15px;
-}
 .titolo{
     text-align: center;
 }
 .card{
-    
     display: flex;
-   
-    
     margin-bottom: 15px;
    
     border-radius: 10px !important;
@@ -79,6 +17,30 @@ margin-bottom: 15px;
     position: relative bottom;
 }
 
+.btn-outline-primary:hover {
+    background-color: rgb(112, 44, 249) !important;
+    color: white !important;
+    border-color: rgb(112, 44, 249) !important;
+    border-width: 2px !important;
+}
+input[type="radio"]:checked + .btn-outline-primary{
+    background-color: rgb(112, 44, 249) !important;
+    color: white !important;
+    border-color: rgb(112, 44, 249) !important;
+    border-width: 2px !important;
+}
+
+input[type="radio"] {
+    display: none;
+}
+
+.btn-outline-primary {
+        background-color: white !important;
+    color: rgb(112, 44, 249) !important;
+    border-color: rgb(112, 44, 249) !important;
+    margin-inline: 5px;
+    border-radius: 0px !important; 
+}
 
 #gallery{
     margin: 15px;
@@ -120,145 +82,6 @@ margin: 1px;
     text-align: center;
   }
 
-  
-.head {
-    background-color:rgb(112, 44, 249, 0.1) !important;
-    padding-top: 15px;
-    
-}
-
-
-.navsotto{
-    margin-top: 10px;
-}
-
-
-.navcat{
-    padding:10px;
-}
-.navcat:hover {
-    background-color: rgb(112, 44, 249) !important;
-    color:white;
-}
-
-/* BOTTONI */
-.cart {
-    background-color: rgb(112, 44, 249) !important;
-    color: white !important;
-    border-color: rgb(112, 44, 249) !important;
-    border-width: 2px !important;
-}
-
-.cart:hover{
-    background-color: white !important;
-    color: rgb(112, 44, 249) !important;
-    border-color: rgb(112, 44, 249) !important;
-}
-
-button {
-    background-color: rgb(112, 44, 249) !important;
-    color: white !important;
-    border-color: rgb(112, 44, 249) !important;
-    border-width: 2px !important;
-}
-
-button:hover{
-    background-color: white !important;
-    color: rgb(112, 44, 249) !important;
-    border-color: rgb(112, 44, 249) !important;
-}
-
-/* FOOTER */
-.foot {
-    /* position: fixed;
-    bottom: 0; */
-    padding-bottom: 10px;
-    width: 100%;
-    background-color: lightgray;
-}
-
-.social {
-    margin-bottom: 15px;
-    padding-top: 15px;
-    justify-content: center;
-    display: flex;
-}
-
-.fa-brands {
-    margin: 5px;
-}
-
-.dati {
-    font-size: small;
-}
-
-/* BODY */
-a {
-    color: black;
-}
-
-a:hover {
-    color: rgb(112, 44, 249);
-}
-.head {
-    background-color:rgb(112, 44, 249, 0.1) !important;
-    padding-top: 15px;
-    
-}
-
-.navsotto{
-    margin-top: 10px;
-}
-
-
-.navcat{
-    
-    padding:10px;
-}
-.navcat:hover {
-    background-color: rgb(112, 44, 249) !important;
-    color:white;
-}
-
-/* BOTTONI */
-.cart {
-    background-color: rgb(112, 44, 249) !important;
-    color: white !important;
-    border-color: rgb(112, 44, 249) !important;
-    border-width: 2px !important;
-}
-
-.cart:hover{
-    background-color: white !important;
-    color: rgb(112, 44, 249) !important;
-    border-color: rgb(112, 44, 249) !important;
-}
-button {
-    background-color: rgb(112, 44, 249) !important;
-    color: white !important;
-    border-color: rgb(112, 44, 249) !important;
-    border-width: 2px !important;
-}
-
-button:hover{
-    background-color: white !important;
-    color: rgb(112, 44, 249) !important;
-    border-color: rgb(112, 44, 249) !important;
-}
-
-/* FOOTER */
-
-.foot {
-    
-    bottom: 0px;
-    padding-bottom: 10px;
-    width: 100%;
-    background-color: lightgray;
-}
-
-.social {
-margin-bottom: 15px;
-}
 .titolo{
     text-align: center;
 }

@@ -1,5 +1,4 @@
 body{
-    margin-top:20px;
     color: #1a202c;
     text-align: left;
     background-color: #e2e8f0;    
@@ -56,3 +55,34 @@ body{
 .btn-info {
     float: right;
 }
+
+#ordini-container h1 {
+    text-align: center;
+}
+
+/* CARD */
+#ordini-container .card {
+    max-width: 40rem;
+    flex-direction: row;
+
+}
+
+#ordini-container .card img {
+    max-width: 25%;
+}
+
+#ordini-container .ordine-container {
+    margin-bottom: 50px;
+}
+#ordini-container .text-section {
+    max-width: 75%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#ordini-container .card-body {
+    display: flex;
+    justify-content: space-between;
+}
+

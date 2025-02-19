@@ -69,9 +69,11 @@ function createCardElement(product) {
   bottone.style.color.purple;
 
   bottone.innerHTML = "Specifiche";
+  bottone.style.borderRadius = "20px";
+  bottone.style.padding = "5px 0px";
   bottone.addEventListener("click", function (event) {
     event.preventDefault();
-    window.location.href = "prova.html";
+    window.location.href = "Prodotto.html?productid=" + product.id;
   });
 
   let image = document.createElement("img");
@@ -102,3 +104,33 @@ function createCardElement(product) {
   contenitore.appendChild(cardBody);
   gallery.appendChild(contenitore);
 }
+
+
+
+function filtraCard() {
+  const filtri = document.querySelectorAll('input[name="options"]');
+  let filtroPrezzo = 0;
+
+  filtri.forEach(filtro => {
+    if (filtro.checked) {
+      console.log(filtro.value);
+      filtroPrezzo = parseFloat(filtro.value);
+    }
+  })
+
+  const cards = document.querySelectorAll(".card")
+  cards.forEach(card => {
+    console.log(card.querySelector(".price").textContent.replace("€", ""))
+    if (parseFloat(card.querySelector(".price").textContent.replace("€", "")) >= filtroPrezzo) {
+      card.style.display = "flex";
+    } else {
+      card.style.display = "none";
+    }
+  })
+}
+
+
+const filtroPrezzo = document.querySelectorAll('input[name="options"]');
+filtroPrezzo.forEach((filtro) => {
+  filtro.addEventListener("change", filtraCard)
+})

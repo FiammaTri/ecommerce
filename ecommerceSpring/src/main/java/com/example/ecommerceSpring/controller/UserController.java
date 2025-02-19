@@ -134,8 +134,6 @@ public class UserController {
 			return Collections.singletonMap("message", "Utente non trovato");
 		}
 		// Trovare tutti gli ordini associati all'id di user
-	    List<Ordine> ordini = ordineRepository.findByUser(user);
-
 		return ordineRepository.findByUser(user);
 	}
 

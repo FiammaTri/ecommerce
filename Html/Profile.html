@@ -10,9 +10,42 @@
       integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="../Css/Base.css">
     <link rel="stylesheet" href="../Css/Profile.css" />
   </head>
   <body>
+     <!--HEADER-->
+   <nav class="head"> 
+    <div class="container text-center">
+      <!--sezione sopra-->
+      <div class="row justify-content-md-center">
+        <div class="col col-sd-12">
+          <a class="navbar-brand" href="../Html/Homepage.html">
+            <img src="/Img/moda-fashion-logo.png" alt="Logo" width="40px" class="d-inline-block align-text-top">
+          </a>
+          </div>
+          <div class="col-sd-8 col-6">
+          <form class="d-flex" role="search">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+          </form>
+        </div>
+        <div class="col col-sd-2">
+        <div class="col col-sd-2">
+          <a href="../Html/Profile.html" class="btn btn-outline-success profile">
+            <i class="fa-solid fa-user"></i></a>
+        <a href="../Html/Carrello.html" class="btn btn-outline-success cart"><i class="fa-solid fa-cart-shopping"></i></a>
+        </div>
+        
+      </div>
+      
+      <!--sezione sotto-->
+      <div class="row justify-content-md-center navsotto" id="nav-bar-cat">
+        
+      </div>
+    </div>
+   </nav>
+
     <div class="container">
       <div class="main-body">
         <div class="row gutters-sm">
@@ -89,6 +122,11 @@
       </div>
     </div>
 
+    <div class="container" id="ordini-container">
+      <h1>Ordini</h1>
+    </div>
+    <script src="../Javascript/header.js"></script>
+    <script src="https://kit.fontawesome.com/b7c0adacbf.js" crossorigin="anonymous"></script>  
     <script src="../Javascript/Profile.js"></script>
   </body>
 </html>

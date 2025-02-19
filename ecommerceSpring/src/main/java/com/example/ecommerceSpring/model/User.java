@@ -2,6 +2,8 @@ package com.example.ecommerceSpring.model;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -40,6 +42,7 @@ public class User {
 	
 	//Lista degli ordini
 	@OneToMany(mappedBy="user")
+	@JsonBackReference
 	private List <Ordine> ordini;
 	
 	@Column (nullable = true, unique = true)

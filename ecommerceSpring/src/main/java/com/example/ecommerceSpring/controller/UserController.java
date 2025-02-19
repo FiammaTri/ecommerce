@@ -123,12 +123,8 @@ public class UserController {
 			response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
 			return Collections.singletonMap("message", "Utente non trovato");
 		}
-
-	    System.out.println("Utente recuperato: {}" + user); // Stampa l'utente
 		// Trovare tutti gli ordini associati all'id di user
-	    List<Ordine> ordini = ordineRepository.findByUser(user);
-	    System.out.println("Ordini trovati: {}" + ordini);
-		return ordineRepository.findAll();
+		return ordineRepository.findByUser(user);
 	}
 
 	/*

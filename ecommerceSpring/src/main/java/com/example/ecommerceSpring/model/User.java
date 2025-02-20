@@ -1,12 +1,16 @@
 package com.example.ecommerceSpring.model;
 
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
+import jakarta.persistence.OneToMany;
 
 @Entity
 
@@ -33,6 +37,12 @@ public class User {
 	
 	@Column (nullable = false)
 	private String password; //password utente
+	
+	//Lista degli ordini
+	@OneToMany(mappedBy="user")
+
+	@JsonManagedReference
+	private List <Ordine> ordini;
 	
 	@Column (nullable = true, unique = true)
 	private String token; //token utente

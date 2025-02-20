@@ -1,27 +1,5 @@
 const paymentBtn = document.getElementById("payment-btn");
 
-function getCarrello(id_carrello) {
-  const mainContainer = document.getElementById("main-container");
-  const total = 0;
-
-  const URL = `https://fakestoreapi.com/carts/${id_carrello}`;
-  fetch(URL)
-    .then((res) => res.json())
-    .then((json) => {
-      const promises = json.products.map(({ productId, quantity }) =>
-        createProductCard(productId, quantity, total)
-      );
-
-      Promise.all(promises).then((data) => {
-        let cards = data.map((obj) => obj.html).join("");
-
-        const container = document.getElementById("cards-container");
-        container.innerHTML = cards;
-
-        updatePrice();
-      });
-    }).catch((err) =>updatePrice() );
-}
 
 function createPaymentCard(totale) {
   let paymentContainer = document.getElementById("payment-card");
@@ -57,18 +35,6 @@ function createPaymentCard(totale) {
 `;
 }
 
-function createProductCard(productId, quantity, total) {
-  const URL = `https://fakestoreapi.com/products/${productId}`;
-  return fetch(URL)
-    .then((res) => res.json())
-    .then((json) => {
-      return {
-        html: createProductCardHtml(json, _, _, quantity),
-        total: json.price * quantity,
-      };
-    });
-}
-
 function createProductCardHtml(product, index, _, quantity = 1) {
   return `
         <div class="card">
@@ -79,7 +45,7 @@ function createProductCardHtml(product, index, _, quantity = 1) {
         <p class="card-text">${product.description}</p>
         </div>
         <div class="cta-section">
-        <button onclick="deleteProduct(this)" class="btn btn-primary px-2">X</button>
+        <button onclick="deleteProduct(this, ${product.id})" class="btn btn-primary px-2">X</button>
         <div>
         <h6 class="card-subtitle"><span>${(product.price * quantity).toFixed(
           2
@@ -102,19 +68,19 @@ function updatePrice() {
   createPaymentCard(totale);
 }
 
-function deleteProduct(element) {
+function deleteProduct(element, product_id) {
   const card = element.closest(".card");
+  let carrelloStorage = JSON.parse(localStorage.getItem("cart"));
+  delete carrelloStorage[String(product_id)];
+  localStorage.setItem("cart", JSON.stringify(carrelloStorage));
   card.remove();
   updatePrice();
 }
 
 function paymentValidation(event) {
   const paymentForm = document.getElementById("payment-form");
-
   event.preventDefault();
-
   const formInputs = paymentForm.querySelectorAll("input[type='text']");
-
   for (let form of formInputs) {
     if (form.value.trim() == "") {
       window.alert("Fill the form correctly");
@@ -122,57 +88,84 @@ function paymentValidation(event) {
     }
   }
 
-  document.getElementById("modal-close-btn").click();
-}
-
-function checkParam() {
-  const params = new URLSearchParams(window.location.search);
-
-  if (params.get("cartId")) {
-    getCarrello(params.get("cartId"));
-  } else if (!params.toString()) {
-    createPaymentCard(0);
+  const carrello = JSON.parse(localStorage.getItem("cart"));
+  const token = localStorage.getItem("authToken");
+  if (token == null) {
+    window.alert("Effettua un log in")
+    return;
   }
+  const header = token ? { Authorization: "Bearer " + token,
+    "Content-Type" : "application/json"
+   } : {};
+  fetch("http://localhost:8080/users/ordini", {
+    method: "POST",
+    headers: header,
+    body: JSON.stringify(carrello)
+  })
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Qualcosa andato storto');
+  }
+  return response.json();
+  })
+  .then(data => {
+    localStorage.removeItem("cart");
+    console.log("fatto con successo")
+  })
+  .catch(error => {
+    console.error('Errore nel recupero dei nomi:', error);
+});
 }
 
-// checkParam();
 paymentBtn.addEventListener("click", (event) => {
   paymentValidation(event);
 });
 
-// ABLE TO GETCARELLO() FROM AN ARRAY PASSED FROM QUERY STRING
-function getCarelloFromArray(arrayCarrello) {
+
+function getCarelloFromArray(objectCarrello) {
   const URL = "https://fakestoreapi.com/products";
   fetch(URL)
     .then((res) => res.json())
     .then((json) => {
-      const productsInCarrello = json.filter((element) => arrayCarrello.includes(element.id))
-      const cards = productsInCarrello.map(createProductCardHtml).join("");
+      const productsInCarrello = json.filter((element) => Object.keys(objectCarrello).includes(String(element.id)))
+      const cards = productsInCarrello.map((product, index, array) => createProductCardHtml(product, index, array, objectCarrello[product.id].quantity)).join("");
       const container = document.getElementById("cards-container");
       container.innerHTML = cards;
       updatePrice();
     });
 }
 
-getCarelloFromArray([1,2,3,4,5,6,7])
+function updateCarrello() {
+  
+  let carrelloStorage = JSON.parse(localStorage.getItem("cart"));
+  if (carrelloStorage !== null) {
+    getCarelloFromArray(carrelloStorage)
+  } else {
+    updatePrice();
+  }
+}
 
+// esempio();
+updateCarrello();
 
+function esempio() {
+  const carrello = {
+    3: {
+      quantity: 5
+    },
 
-// Simone 
+    10: {
+      quantity: 2
+    }
+  }
+  localStorage.setItem("cart", JSON.stringify(carrello))
+}
 
-function getAllProductsCategory(categoria) {
-  const URL = "https://fakestoreapi.com/products/category/";
-  fetch(URL + categoria)
-            .then(res=>res.json())
-            .then(json=>{
-
-              console.log(json);
-              const container = document.getElementById("gallery");
-
-              for (let product of json){
-                console.log(product);
-                const card = createCard(product);
-                container.appendChild(card);
-              }
-            })
+function addItem(key) {
+  let carrelloStorage = JSON.parse(localStorage.getItem("cart") || {});
+  if (cart[key]) {
+      cart[key].quantity += 1; // Se la key esiste, aumenta la quantità
+  } else {
+      cart[key] = { quantity: 1 }; // Se la key non esiste, la aggiunge con quantità 1
+  }
 }

@@ -83,6 +83,8 @@ body{
     opacity: 0.6;
 }
 
+
+
 @media (max-width: 576px) {
     .registration-form form{
         padding: 50px 20px;

@@ -1,22 +1,26 @@
 package com.example.ecommerceSpring.controller;
 
+import java.time.LocalDate;
 import java.util.Collections;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.ecommerceSpring.auth.TokenService;
-import com.example.ecommerceSpring.exception.ResourceNotFoundException;
+import com.example.ecommerceSpring.model.Ordine;
+import com.example.ecommerceSpring.model.OrdineDettagli;
 import com.example.ecommerceSpring.model.User;
+import com.example.ecommerceSpring.repository.OrdineDettagliRepository;
+import com.example.ecommerceSpring.repository.OrdineRepository;
 import com.example.ecommerceSpring.repository.UserRepository;
-
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -24,6 +28,7 @@ import jakarta.servlet.http.HttpServletResponse;
 @RestController
 @Validated
 @RequestMapping("/users")
+@CrossOrigin(origins = "*")
 public class UserController {
 
 	@Autowired
@@ -32,7 +37,14 @@ public class UserController {
 	@Autowired
 	private UserRepository userRepository;
 
+	@Autowired
+	private OrdineRepository ordineRepository;
+	
+	@Autowired
+	private OrdineDettagliRepository ordineDettagliRepository;
+
 	// Metodo per ottenere una lista di tutti gli utenti
+	// solo per admin
 	@GetMapping
 	public List<User> getAllUser() {
 		return userRepository.findAll();
@@ -41,7 +53,8 @@ public class UserController {
 	// Metodo per creare un nuovo utente
 	@PostMapping
 	public Object createUser(@RequestBody User user, HttpServletResponse response) {
-		if (user.getEmail()==null || user.getName()==null || user.getSurname()==null || user.getUsername()==null || user.getPassword()==null) {
+		if (user.getEmail() == null || user.getName() == null || user.getSurname() == null || user.getUsername() == null
+				|| user.getPassword() == null) {
 			response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
 			return Collections.singletonMap("message", "Compilare tutti i campi obbligatori");
 		}
@@ -50,17 +63,11 @@ public class UserController {
 
 	// metodo per ottenere uno specifico utente tramite ID
 	// Controllo che entra in funzione quando si vuole accedere al profilo
-	@GetMapping("/profilo/{id}")
-	public Object getUserById(@PathVariable Long id, HttpServletRequest request, HttpServletResponse response) {
+	@GetMapping("/profile")
+	public Object getUserById(HttpServletRequest request, HttpServletResponse response) {
 		// Ottiene l'utente autenticato dal token
 		User authUser = getAuthenticatedUser(request);
 		if (authUser == null) {
-			response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
-			return Collections.singletonMap("message", "Non autorizzato");
-		}
-		// Controllo se l'id del token è diverso da l'id passato nell'URL
-		// authUser.getId()!=id
-		if (!(authUser.getId() == id)) {
 			response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
 			return Collections.singletonMap("message", "Non autorizzato");
 		}
@@ -96,22 +103,68 @@ public class UserController {
 	}
 
 	/**
-	 * Endpoint riservato agli amministratori che consente di aggiungere un nuovo
-	 * utente. Richiede un token valido e che l'utente autenticato abbia il ruolo
-	 * "admin".
+	 * Endpoint che consente di aggiungere un nuovo utente.
 	 *
 	 * @param newUser  Oggetto User da aggiungere (ricevuto in formato JSON)
-	 * @param request  Oggetto HttpServletRequest per leggere l'header
-	 *                 "Authorization"
 	 * @param response Oggetto HttpServletResponse per impostare lo status in caso
 	 *                 di errore
-	 * @return Messaggio di successo oppure errore
+	 * @return Messaggio di successo
 	 */
 	@PostMapping("/addUser")
 	public Object addUser(@RequestBody User newUser) {
 		// Salva il nuovo utente nel database
+		if (newUser.getPiva().equalsIgnoreCase("")) {
+			newUser.setPiva(null);
+		}
 		userRepository.save(newUser);
 		return Collections.singletonMap("message", "Utente aggiunto con successo");
 	}
 
+	/*
+	 * Endpoint per prendere tutti gli ordini dato un id
+	 * 
+	 */
+	@GetMapping("/ordini")
+	public Object getOrdersByToken(HttpServletRequest request, HttpServletResponse response) {
+
+		// Ottiene l'utente autenticato dal token
+		User user = getAuthenticatedUser(request);
+		if (user == null) {
+			response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
+			return Collections.singletonMap("message", "Utente non trovato");
+		}
+		// Trovare tutti gli ordini associati all'id di user
+		return ordineRepository.findByUser(user);
+	}
+
+	/*
+	 * Endpoint per aggiungere un ordine ad un user
+	 */
+	@PostMapping("/ordini")
+	public Object postOrdersByToken(@RequestBody Map<String, Map<String, Integer>> cart, HttpServletRequest request, HttpServletResponse response) {
+		// Controllo se c'e un utente con questo  token
+		User user = getAuthenticatedUser(request);
+		System.out.println(user);
+		System.out.println("I was here");
+		if (user == null) {
+			response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
+			return Collections.singletonMap("message", "Utente non trovato");
+		}
+		// Creo Ordine Object
+		Ordine ordine = new Ordine();
+		ordine.setUser(user);
+		ordine.setData_ordine(LocalDate.now());
+		final Ordine ordineSalvato = ordineRepository.save(ordine);
+		
+		cart.forEach((key, value) -> {
+			// Per ogni chiave - valore crea un OrdineDettali
+			OrdineDettagli ordineDettagli = new OrdineDettagli();
+			ordineDettagli.setIdProdotto(Long.parseLong(key));
+			ordineDettagli.setOrdine(ordineSalvato);
+			ordineDettagli.setQuantita(value.get("quantity"));
+			ordineDettagliRepository.save(ordineDettagli);
+		});
+		
+		return Collections.singletonMap("message", "Ordine aggiunto con successo");
+	}
 }

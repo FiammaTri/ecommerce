@@ -4,6 +4,7 @@
     background-color:rgb(112, 44, 249, 0.1) !important;
     padding-top: 15px;
     
+    
 }
 
 
@@ -64,7 +65,7 @@ button:hover{
     display: flex;
 }
 
-.fa-brands {
+.social .fa-brands {
     margin: 5px;
 }
 
@@ -80,4 +81,5 @@ a {
 a:hover {
     color: rgb(112, 44, 249);
 }
+
 
